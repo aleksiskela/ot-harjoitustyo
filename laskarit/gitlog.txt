@@ -110,3 +110,6 @@ Date:   Wed Mar 16 11:35:00 2022 +0200
 
  tiedosto.txt | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
+
+
+Tehtävän 17 mukainen muokkaus.
