@@ -12,3 +12,6 @@ Suurin osa tehtävistä oli tuttuja lapiosta, **mutta komentorivi palauttaa joit
 
 ###### Tehtävän 16 mukainen lisäys
 Lisää GitHubia
+
+###### Tehtävä 17
+Paikallinen muutos
