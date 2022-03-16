@@ -9,3 +9,6 @@ Suurin osa tehtävistä oli tuttuja lapiosta, **mutta komentorivi palauttaa joit
 [gitlog.txt](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/laskarit/gitlog.txt)
 
 [komentorivi.txt](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/laskarit/komentorivi.txt)
+
+###### Tehtävän 16 mukainen lisäys
+Lisää GitHubia
