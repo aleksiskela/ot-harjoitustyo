@@ -1,0 +1,112 @@
+commit 9e776c966d5d6193c37e106d2a2bd7d43f36353d
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:58:33 2022 +0200
+
+    file1 poistettu, file2 renamed > file22
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 60439b66705e2c9c5a8a5ee30efff9f9ae53d463
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:53:36 2022 +0200
+
+    tiedostoja hakemisto ja filet lisätty
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7d218410cda54503a8821d981274b5c7663a0d7c
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:48:02 2022 +0200
+
+    lisää testimuokkauksia
+
+ eka.txt    | 4 +++-
+ kolmas.txt | 2 ++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+commit 58fa3b7c977cd74c16d0862f00c5354a62ebccfb
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:40:51 2022 +0200
+
+    tiedosto poistettu gitin alaisuudesta
+
+ tiedosto.txt | 7 -------
+ 1 file changed, 7 deletions(-)
+
+commit 62b2e987f6ceba040227f90f3ca0b1b129908830
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:36:58 2022 +0200
+
+    tiedoston nimi muutettu: tiedosto > eka
+
+ eka.txt | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit bb588617466e878506fa798844e2d7b118d3d716
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:34:57 2022 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 53db8c7123494f280cc6cf7efcb92d4cda958385
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:31:05 2022 +0200
+
+    tiedoston tekstiä muokattu
+
+ tiedosto.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 96674f9c7f0773455fa3f204c0adff0c5deedef9
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:29:41 2022 +0200
+
+    lorem lisätty tiedostoon
+
+ tiedosto.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit d46a3f4cf2064c58b4b416c8b38791e928f2a9f2
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:09:34 2022 +0200
+
+    stuff kansio luotu ja lisätty
+
+ stuff/roinaa.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8c831c134d0889b392137f3d3c0595a045aecd87
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:07:56 2022 +0200
+
+    kolmas luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b060d0e03f1af602fee9ca97507076e9fed0e285
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 12:01:09 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 2c4b276fa4336aab4e0c961d38bfa4826659df50
+Author: Aleksi Kumpuniemi <aleksi.kumpuniemi@helsinki.fi>
+Date:   Wed Mar 16 11:35:00 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
