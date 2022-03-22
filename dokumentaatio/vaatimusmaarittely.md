@@ -1,14 +1,16 @@
 # Vaatimusmäärittely
 
-### Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
+
 Sovelluksella voidaan luoda varasto ja pitää kirjaa sen tuotteista vanhenemispäiväys huomioiden. Varastolle määritellään minimivarustelu, jonka ajantasaisuutta on helppo valvoa. Sovellusta voidaan käyttää esimerkiksi 72 tunnin hätävaravaraston ylläpitoon.
 
-### Käyttäjät
+## Käyttäjät
+
 Sovelluksella on lähtökohtaisesti vain yksi käyttäjäprofiili
 
-### Perusversion tarjoama toiminnallisuus
+## Perusversion tarjoama toiminnallisuus
 
-#### Statustila
+### Statustila
 - Käyttäjä näkee luotujen varastojen statuksen
   - Varaston nimen vieressä varaston täyttöaste formaatissa ##/##
   - Rivi korostettuna vihreällä, jos kaikki kunnossa
@@ -17,7 +19,7 @@ Sovelluksella on lähtökohtaisesti vain yksi käyttäjäprofiili
 - Käyttäjä voi luoda uuden varaston
 - Käyttäjä voi avata varaston tarkastelua tai muokkausta varten
 
-#### Uuden varaston luominen
+### Uuden varaston luominen
 - Käyttäjä voi antaa varastolle seuraavia tietoja:
   - Varaston nimi
   - Tuotteet:
@@ -25,12 +27,13 @@ Sovelluksella on lähtökohtaisesti vain yksi käyttäjäprofiili
     - Minimilukumäärä
 - Tuotteen parametrit: nimi, lukumäärä, minimilukumäärä, vanhenemispäivä ja lisätietokenttä.
 
-#### Varaston tarkastelu ja muokkaus
+### Varaston tarkastelu ja muokkaus
 - Käyttäjä voi lisätä ja vähentää tuotteen lukumäärää
 - Käyttäjä voi lisätä tai muokata tuotteen vanhenemispäivää
 - Käyttäjä voi muokata lisätietokentän tekstiä
 
-#### Jatkokehitysideoita
+## Jatkokehitysideoita
+
 - Tuotteen vanhenemispäivän sijaan voidaan antaa päivien lukumäärä, jonka jälkeen tuote vanhenee
 - Lisättäessä tuotetta tallennetaan lisäysaika, jolloin keltainen korostus voidaan suhteuttaa tuotteen säilyvyysaikaan
 - Tuote voidaan merkitä kuuluvaksi minimivarusteluun tai olemaan sen ulkopuolella
