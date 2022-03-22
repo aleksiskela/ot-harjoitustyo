@@ -15,3 +15,8 @@ Lisää GitHubia
 
 ###### Tehtävä 17
 Paikallinen muutos
+
+###### Dokumentaatio
+[Vaatimusmäärittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md
+)
+[Tuntikirjanpito](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
