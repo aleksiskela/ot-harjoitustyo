@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksella voidaan luoda varasto ja pitää kirjaa sen tuotteista vanhenemispäiväys huomioiden. Varastolle määritellään minimivarustelu, jonka ajantasaisuutta on helppo valvoa. Sovellusta voidaan käyttää esimerkiksi 72 tunnin hätävaravaraston ylläpitoon.
+Sovelluksella voidaan luoda varastokirjanpito varaston minimivarustelu ja vanhenemispäiväys huomioiden. Varastolle määritellään minimivarustelu, jonka ajantasaisuutta on helppo valvoa graafisen käyttöliittymän avulla. Sovellusta voidaan käyttää esimerkiksi 72 tunnin hätävaran ylläpitoon.
 
 ## Käyttäjät
 
