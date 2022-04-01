@@ -3,3 +3,7 @@
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
 | 22.3. | 2    | Määrittelydokumentti |
+| 29.3. | 2    | Arkkitehtuurin opiskelu |
+| 30.3. | 4    | Rakenteen suunnittelu ja tietokannan alustus |
+| 31.3. | 2    | Esimerkkirakenteeseen opiskelu ja ohjelman rakenteen uudelleensuunnittelu |
+| 1.4.  | 5    | Ohjelmointi aloitettu oppimateriaalin ohjeiden mukaisesti. Ensimmäiset testit, coverage & invoke toteutus. Changelog luotu |
