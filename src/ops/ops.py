@@ -1,3 +1,4 @@
+from re import S
 from repositories.storage_manager import StorageManager
 
 if False:
@@ -32,13 +33,16 @@ class Console:
         print("\nCreate new storage")
         name = input("Storage name: ")
         self._manager.create_new_storage(name)
-        print(f"{name} created")
+        print(f"{name} created\n")
 
     def view_storages(self):
         print("\nAvailable storages:")
         storages = self._manager.view_storages()
+        if len(storages) == 0:
+            print("No storages created\n")
         for storage in storages:
             print(storage[0])
+            print()
 
     def exit(self):
-        print("Thanks for trying!")
+        print("Thanks for testing!")

@@ -6,6 +6,10 @@ def start(ctx):
     ctx.run("python3 src/index.py", pty=True)
 
 @task
+def initiate(ctx):
+    ctx.run("python3 src/init_db.py", pty=True)
+
+@task
 def test(ctx):
     ctx.run("pytest src", pty=True)
 
