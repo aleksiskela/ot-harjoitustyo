@@ -1,23 +1,27 @@
-# Ensimmäisen viikon harjoituksia
+# Varasto-sovellus
 
-Tänään olemme harjoitelleet *komentoriviä* ja **gitin** käyttöä
+Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellään minimivarustelu ja tuotteita lisättäessä niille voidaan määritellä parasta ennen-päiväys. Sovelluksen graafisen käyttöliittymän avulla käyttäjä voi muokata ja seurata varaston tilaa.
 
-### Ensimmäisen viikon kokemuksia
+## Dokumentaatio
 
-Suurin osa tehtävistä oli tuttuja lapiosta, **mutta komentorivi palauttaa joitakin _askarruttavia virheilmoituksia_, vaikka kaikki tuntuu muuten toimivan.**
-
-[gitlog.txt](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-###### Tehtävän 16 mukainen lisäys
-Lisää GitHubia
-
-###### Tehtävä 17
-Paikallinen muutos
-
-###### Dokumentaatio
-[Vaatimusmäärittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md
-)
-
+[Vaatimusmäärittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 [Tuntikirjanpito](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Changelog](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+
+## Asennus
+
+- Asenna riippuvuudet komennolla poetry install
+- Alusta tietokannat komennolla poetry run invoke initiate
+- Käynnistä komentorivikäyttöliittymä komennolla poetry run invoke start
+  - Graafinen käyttöliittymä tulee myöhemmin
+
+## Komentorivitoiminnot
+
+### Ohjelman käynnistys
+Ohjelman komentorivikäyttöliittymä suoritetaan komennolla poetry run invoke start
+
+### Testaus
+Testit voidaan suorittaa komennolla poetry run invoke test
+
+### Testauskattavuus
+Testikattavuusraportti luodaan komennolla poetry run invoke coverage-report
