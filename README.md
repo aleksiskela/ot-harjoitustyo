@@ -4,9 +4,9 @@ Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle m채채ritell채�
 
 ## Dokumentaatio
 
-[Vaatimusm채채rittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
-[Tuntikirjanpito](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
-[Changelog](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+- [Vaatimusm채채rittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [Tuntikirjanpito](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Changelog](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
 ## Asennus
 
