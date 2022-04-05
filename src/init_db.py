@@ -7,17 +7,17 @@ def init_db():
 
 def drop_existing_tables(database):
     try:
-        database.execute("drop table Storages")
+        database.execute("DROP TABLE Storages")
     except:
         pass
     try:
-        database.execute("drop table Items")
+        database.execute("DROP TABLE Items")
     except:
         pass
 
 def create_tables(database):
-    database.execute("create table Storages (id integer primary key, name text)")
-    database.execute("create table Items (id integer primary key, item_name text, amount integer)")
+    database.execute("CREATE TABLE Storages (id INTEGER PRIMARY KEY, name TEXT)")
+    database.execute("CREATE TABLE Items (id INTEGER PRIMARY KEY, storage_id INTEGER REFERENCES Storages, item_name TEXT, amount INTEGER DEFAULT 0, minimum_amount INTEGER)")
 
 if __name__=="__main__":
     init_db()
