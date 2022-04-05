@@ -7,3 +7,5 @@
 | 30.3. | 4    | Rakenteen suunnittelu ja tietokannan alustus |
 | 31.3. | 2    | Esimerkkirakenteeseen opiskelu ja ohjelman rakenteen uudelleensuunnittelu |
 | 1.4.  | 5    | Ohjelmointi aloitettu oppimateriaalin ohjeiden mukaisesti. Ensimmäiset testit, coverage & invoke toteutus. Changelog luotu |
+| 4.4.  | 6    | Config moduuli ja dotenv lisätty. Ohjelmointia jatkettu etenkin tekstikäyttöliittymän toiminnallisuuden osalta |
+| 5.4.  | 3    | Testejä lisätty. Viikon 3 palautuksen viimeistely mm. virtuaaliympäristön toimivuuden tarkastaminen |
