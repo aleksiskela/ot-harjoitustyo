@@ -2,6 +2,8 @@
 
 ## Viikko 3
 
+- Konfiguraatio-tiedosto ja ohjelman alustava rakenne luotu
 - SQLite tietokantojen yhteys ja taulut alustettu
-- Storage_manager-luokka luotu, joka vastaa tietokannan käsittelystä
-- Testattu, että storage_manager tallentaa uuden varaston oikein
+- StorageManager-luokka luotu, joka vastaa tietokannan käsittelystä
+- Ensimmäiset testit aloitettu
+- Tekstikäyttöliittymällä voi lisätä ja poistaa varastoja, lisätä ja poistaa vaadittavia tuotteita.
