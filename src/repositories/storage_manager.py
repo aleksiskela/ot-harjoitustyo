@@ -41,3 +41,7 @@ class StorageManager:
     def delete_required_item_from_storage(self, storage_name: str, item_name: str):
         storage_id = self.find_storage_id(storage_name)
         self._db.execute("DELETE FROM Items WHERE storage_id=? AND item_name=?", [storage_id, item_name])
+
+    def delete_all(self):
+        self._db.execute("DELETE FROM Items")
+        self._db.execute("DELETE FROM Storages")

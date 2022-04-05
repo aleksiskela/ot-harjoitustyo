@@ -4,6 +4,7 @@ from repositories.storage_manager import StorageManager
 class TestStorage_manager(unittest.TestCase):
     def setUp(self):
         self.manager = StorageManager()
+        self.manager.delete_all()
         self.s = "Testorage"
         self.i = "Testitem"
         self.manager.create_new_storage(self.s)
