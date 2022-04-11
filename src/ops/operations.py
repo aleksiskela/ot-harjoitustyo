@@ -1,7 +1,7 @@
 from repositories.storage_manager import StorageManager
 
 
-class Operator:
+class Operations:
     def __init__(self):
         self._manager = StorageManager()
         self._active_storage = ""
@@ -16,6 +16,9 @@ class Operator:
             return "No storages created yet. Start by creating one."
         return "Available storages:"
 
+    def create_new_storage(self, storage_name: str):
+        self._manager.create_new_storage(storage_name)
+
     def set_active_storage(self, storage):
         self._active_storage = storage
 
@@ -26,4 +29,4 @@ class Operator:
         return self._manager.find_items(self._active_storage)
 
 
-operator = Operator()
+operations = Operations()

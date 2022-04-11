@@ -1,4 +1,4 @@
-from ops.ops import Console
+from ui.ops import Console
 
 
 class CLI:

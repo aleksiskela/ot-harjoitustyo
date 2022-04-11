@@ -48,7 +48,7 @@ class Console:
     def insert_required_item_to_storage(self):
         print("\nInsert required item")
         item = input("Item: ")
-        if self._manager.if_item_in_storage_exists is not None:
+        if self._manager.if_item_in_storage_exists(self._active_storage, item) is True:
             print("Item already set as required item")
         else:
             min_req = int(input("Minimum number of items: "))

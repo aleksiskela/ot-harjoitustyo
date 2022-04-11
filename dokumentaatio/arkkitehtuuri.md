@@ -2,8 +2,8 @@
 
 ## Rakenne
 
-Ohjelman rakenne on kolmitasoinen: käyttöliittymä, logiikasta vastaava Operations-luokka ja tietokantojen käsittelystä vastaava StorageManager-luoka.
-Ohjelman tässä kehitysvaiheessa graafinen käyttöliittymä on keskeneräinen ja toiminnaillisuudesta saa paremman kuvan tekstikäyttöliittymän avulla.
+Ohjelman rakenne on kolmitasoinen: käyttöliittymä, logiikasta vastaava Operations-luokka ja tietokantojen käsittelystä vastaava StorageManager-luokka.
+Ohjelman tässä kehitysvaiheessa graafinen käyttöliittymä on alkeellinen ja suunnitellusta toiminnallisuudesta saa paremman kuvan tekstikäyttöliittymän avulla. 
 
 ## Sovelluslogiikka
 

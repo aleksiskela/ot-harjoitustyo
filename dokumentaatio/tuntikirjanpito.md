@@ -9,3 +9,7 @@
 | 1.4.  | 5    | Ohjelmointi aloitettu oppimateriaalin ohjeiden mukaisesti. Ensimmäiset testit, coverage & invoke toteutus. Changelog luotu |
 | 4.4.  | 6    | Config moduuli ja dotenv lisätty. Ohjelmointia jatkettu etenkin tekstikäyttöliittymän toiminnallisuuden osalta |
 | 5.4.  | 3    | Testejä lisätty. Viikon 3 palautuksen viimeistely mm. virtuaaliympäristön toimivuuden tarkastaminen |
+| 6.4.  | 3    | Tekstikäyttöliittymän toiminnallisuutta lisätty. Pylint ja automaattisen formatoinnin alustus. TkInteriin tutustuminen |
+| 8.4.  | 5    | TkInterin opettelu ja graafisen käyttöliittymän aloitus. Testejä lisätty. |
+| 11.4. | 4    | Arkitehtuuridokumentaatio. Käyttöliittymän eriyttämisen aloitus. |
+| yht.  | 36   | :-----|

@@ -29,4 +29,4 @@ Testit voidaan suorittaa komennolla poetry run invoke test
 Testikattavuusraportti luodaan komennolla poetry run invoke coverage-report
 
 ### Pylint
-Pylint tarkastukset suoritetaan komennolla poetry run invoke pylint
+Pylint tarkastukset suoritetaan komennolla poetry run invoke lint
