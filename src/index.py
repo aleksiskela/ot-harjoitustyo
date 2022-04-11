@@ -1,4 +1,14 @@
-import ui.ui
+from tkinter import Tk
+from ui.gui import GUI
 
-program = ui.ui.CLI()
-program.start()
+def gui():
+    window = Tk()
+    window.title("Storage manager")
+
+    program = GUI(window)
+    program.start()
+
+    window.mainloop()
+
+if __name__ == "__main__":
+    gui()

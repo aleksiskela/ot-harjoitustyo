@@ -1,5 +1,6 @@
 from ops.ops import Console
 
+
 class CLI:
     def __init__(self):
         self._ops = Console()
@@ -41,5 +42,11 @@ class CLI:
                 elif action == "2":
                     self._ops.delete_required_item_from_storage()
                     self._ops.storage_instruction()
-                else: 
+                elif action == "3":
+                    self._ops.load_item()
+                    self._ops.storage_instruction()
+                elif action == "4":
+                    self._ops.use_item()
+                    self._ops.storage_instruction()
+                else:
                     self._ops.storage_instruction()
