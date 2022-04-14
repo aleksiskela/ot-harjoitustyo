@@ -44,7 +44,7 @@ class StorageManager:
         self._db.execute("DELETE FROM Items WHERE storage_id=?", [storage_id])
         self._db.execute("DELETE FROM Storages WHERE name=?", [storage_name])
 
-    def find_items(self, storage_name: str):
+    def find_all_items_in_storage(self, storage_name: str):
         storage_id = self.find_storage_id(storage_name)
         return self._db.execute(
             "SELECT item_name, amount, minimum_amount FROM Items WHERE storage_id=?",
@@ -56,6 +56,10 @@ class StorageManager:
         self._db.execute(
             f"INSERT INTO Items (storage_id, item_name, minimum_amount) VALUES ({storage_id},?,?)",
             [item_name, minimum_amount])
+
+    def pick_item(self, item_name, storage_name):
+        storage_id = self.find_storage_id(storage_name)
+        return self._db.execute("SELECT item_name, amount, minimum_amount FROM Items WHERE storage_id=? AND item_name=?",[storage_id, item_name]).fetchall()
 
     def delete_required_item_from_storage(self, storage_name: str, item_name: str):
         storage_id = self.find_storage_id(storage_name)
@@ -73,6 +77,12 @@ class StorageManager:
         self._db.execute(
             "UPDATE Items SET amount=amount-? WHERE storage_id=? AND item_name=?",
             [amount, storage_id, item])
+
+    def update_item(self, storage_name, item_name, amount):
+        storage_id = self.find_storage_id(storage_name)
+        self._db.execute(
+            "UPDATE Items SET amount=? WHERE storage_id=? AND item_name=?",
+            [amount, storage_id, item_name])
 
     def delete_all(self):
         self._db.execute("DELETE FROM Items")
