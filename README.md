@@ -2,6 +2,10 @@
 
 Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellään minimivarustelu ja tuotteita lisättäessä niille voidaan määritellä parasta ennen-päiväys. Sovelluksen graafisen käyttöliittymän avulla käyttäjä voi muokata ja seurata varaston tilaa.
 
+## Release
+
+[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/Viikko5) 
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
