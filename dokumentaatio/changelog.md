@@ -29,3 +29,5 @@
 - Käyttäjä voi muokata vaadittavia tavaroita "Edit item" alasivulla.
 - Lisätty tkcalendar, jonka avulla voi valita vanhenemispäivän.
 - Testeihin lisätty Operations-luokka
+- Luotu ItemStatus-luokka, jonka tehtävä on tarkastaa tuotteen riittävyys ja ajantasaisuus. Tässä vaiheessa luokan avulla voidaan korostaa tuote punaisella, jos vaadittava määrä ei täyty, ja vihreällä jos määrä on riittävä. Jos tuote on merkitty "Not Monitored", tekstin väri on musta.
+- Arkkitehtuuri-dokumenttiin lisätty varaston luonti sekvenssikaaviona.

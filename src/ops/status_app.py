@@ -17,4 +17,4 @@ class ItemStatus:
             self.status = "green"
 
     def _check_expdate(self):
-        pass
+        date.today()

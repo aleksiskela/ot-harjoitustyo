@@ -15,5 +15,5 @@
 | 13.4. | 4    | Graafisen käyttöliittymän näkymien jakaminen omiin tiedostoihin. Uutta toiminnallisuutta lisätty mm edit storage-osioon|
 | 14.4. | 3    | tkcalendarin opettelu ja implementointi |
 | 23.4. | 4    | GUI toiminnallisuutta lisätty mm tavaroiden lisääminen, muokkaaminen ja poistaminen |
-| 26.4. | 6    | Operations-luokan testit aloitettu. Koodin yhteensopivuutta parannettu. |
-| yht.  | 49   | |
+| 26.4. | 6    | Operations-luokan testit aloitettu. Koodin yhteensopivuutta parannettu. Lisätty ItemStatus-luokka. GitHub relese.  |
+| yht.  | 53   | |
