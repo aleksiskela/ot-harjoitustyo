@@ -29,16 +29,28 @@ class StorageView:
 
     def _list_items(self, item):
         item_frame = ttk.Frame(master=self._frame)
+
         item_name = item[0]
         item_amount = f"{item[1]}/{item[2]}"
+        item_exp = item[3]
+        misc = item[5]
+
         item_name_label = ttk.Label(master=item_frame, text=item_name)
         item_amount_label = ttk.Label(master=item_frame, text=item_amount)
+        item_exp_label = ttk.Label(master=item_frame, text=item_exp)
+        monitored_message_label = ttk.Label(master=item_frame, text=operations.monitored_message(item[4]))
+        misc_label = ttk.Label(master=item_frame, text=misc)
+
+
         edit_button = ttk.Button(master=item_frame, text="Edit item", command=lambda: self.handle_edit_item(item_name))
         # item_name_label.pack(side=constants.LEFT)
         # item_amount_label.pack(side=constants.RIGHT)
         item_name_label.grid(row=0, column=0, sticky=constants.W)
-        item_amount_label.grid(row=0, column=2)
-        edit_button.grid(row=0, column=3, sticky=constants.E)
+        item_amount_label.grid(row=0, column=1)
+        item_exp_label.grid(row=0,column=2)
+        monitored_message_label.grid(row=0, column=3)
+        misc_label.grid(row=0, column=4)
+        edit_button.grid(row=0, column=5, sticky=constants.E)
 
         item_frame.grid()
         # item_frame.pack(fill=constants.X)

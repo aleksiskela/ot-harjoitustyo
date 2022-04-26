@@ -12,4 +12,7 @@
 | 6.4.  | 3    | Tekstikäyttöliittymän toiminnallisuutta lisätty. Pylint ja automaattisen formatoinnin alustus. TkInteriin tutustuminen |
 | 8.4.  | 5    | TkInterin opettelu ja graafisen käyttöliittymän aloitus. Testejä lisätty. |
 | 11.4. | 4    | Arkitehtuuridokumentaatio. Käyttöliittymän eriyttämisen aloitus. |
-| yht.  | 36   | |
+| 13.4. | 4    | Graafisen käyttöliittymän näkymien jakaminen omiin tiedostoihin. Uutta toiminnallisuutta lisätty mm edit storage-osioon|
+| 14.4. | 3    | tkcalendarin opettelu ja implementointi |
+| 23.4. | 4    | GUI toiminnallisuutta lisätty mm tavaroiden lisääminen, muokkaaminen ja poistaminen |
+| yht.  | 43   | |
