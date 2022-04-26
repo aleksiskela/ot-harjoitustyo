@@ -132,8 +132,12 @@ class EditItemView:
         self._handle_select_storage(operations.get_active_storage())
 
     def change_date(self, datestr):
-        datelist = datestr.split(".")
-        std = date(int(datelist[2]),int(datelist[1]),int(datelist[0])).isoformat()
+        try:
+            datelist = datestr.split(".")
+            std = date(int(datelist[2]),int(datelist[1]),int(datelist[0])).isoformat()
+        except IndexError:
+            datelist = datestr.split("/")
+            std = date(int(datelist[2]),int(datelist[1]),int(datelist[0])).isoformat()
         self._temp_exp.set(std)
 
     def delete_item(self):
