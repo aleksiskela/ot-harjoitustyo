@@ -16,9 +16,9 @@ def create_tables(database):
     database.execute(
         "CREATE TABLE Storages (id INTEGER PRIMARY KEY, name TEXT)")
     database.execute("""CREATE TABLE Items (id INTEGER PRIMARY KEY,
-storage_id INTEGER REFERENCES Storages, item_name TEXT, amount INTEGER DEFAULT 0,
-minimum_amount INTEGER DEFAULT 0, expiry_date DATETIME DEFAULT "-",
-monitored BOOLEAN, misc TEXT DEFAULT "-")""")
+        storage_id INTEGER REFERENCES Storages, item_name TEXT, amount INTEGER DEFAULT 0,
+        minimum_amount INTEGER DEFAULT 0, expiry_date DATETIME DEFAULT "-",
+        monitored BOOLEAN, misc TEXT DEFAULT "-")""")
 
 
 if __name__ == "__main__":

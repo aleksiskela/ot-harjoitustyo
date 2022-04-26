@@ -1,4 +1,4 @@
-from tkinter import ttk, constants,StringVar, IntVar, Checkbutton
+from tkinter import ttk, constants, StringVar, IntVar, Checkbutton
 from tkcalendar import Calendar
 from datetime import date
 from ops.operations import operations
@@ -16,7 +16,7 @@ class EditItemView:
         self._frame = ttk.Frame(master=self._root)
 
         today = date.today()
-        
+
         active_item = operations.get_active_item()
         self._temp_amount = StringVar()
         self._temp_amount.set(active_item[1])
@@ -41,32 +41,48 @@ class EditItemView:
         # title_mon = ttk.Label(master=self._frame, text="Monited")
 
         name_label = ttk.Label(master=self._frame, text=active_item[0])
-        var_label = ttk.Label(master=self._frame, textvariable=self._temp_amount)
-        cap_label = ttk.Label(master=self._frame, textvariable=self._temp_required)
+        var_label = ttk.Label(master=self._frame,
+                              textvariable=self._temp_amount)
+        cap_label = ttk.Label(master=self._frame,
+                              textvariable=self._temp_required)
         exp_label = ttk.Label(master=self._frame, textvariable=self._temp_exp)
-        misc_label = ttk.Label(master=self._frame, textvariable=self._temp_misc)
+        misc_label = ttk.Label(
+            master=self._frame, textvariable=self._temp_misc)
 
-        mon_check = Checkbutton(master=self._frame, text="Monitored", variable=self._temp_monitored, onvalue=1, offvalue=0)
+        mon_check = Checkbutton(master=self._frame, text="Monitored",
+                                variable=self._temp_monitored, onvalue=1, offvalue=0)
 
         mod_label = ttk.Label(master=self._frame, text="Modify amount")
-        inc_button = ttk.Button(master=self._frame, text="+", command=self.increase_amount, width=1)
-        dec_button = ttk.Button(master=self._frame, text="-", command=self.decrease_amount, width=1)
+        inc_button = ttk.Button(
+            master=self._frame, text="+", command=self.increase_amount, width=1)
+        dec_button = ttk.Button(
+            master=self._frame, text="-", command=self.decrease_amount, width=1)
 
-        inc_req_button = ttk.Button(master=self._frame, text="+", command=self.increase_required_amount, width=1)
-        dec_req_button = ttk.Button(master=self._frame, text="-", command=self.decrease_required_amount, width=1)
+        inc_req_button = ttk.Button(
+            master=self._frame, text="+", command=self.increase_required_amount, width=1)
+        dec_req_button = ttk.Button(
+            master=self._frame, text="-", command=self.decrease_required_amount, width=1)
 
         date_label = ttk.Label(master=self._frame, text="Set expiry date")
-        self._calendar = Calendar(self._frame, selectmode = "day", year=today.year, month=today.month, day=today.day)
-        date_button = ttk.Button(master=self._frame, text="Confirm date", command=lambda: self.change_date(self._calendar.get_date()))
-        clear_date_button = ttk.Button(master=self._frame, text="Clear expiry date", command=lambda: self._temp_exp.set("-"))
+        self._calendar = Calendar(
+            self._frame, selectmode="day", year=today.year, month=today.month, day=today.day)
+        date_button = ttk.Button(master=self._frame, text="Confirm date",
+                                 command=lambda: self.change_date(self._calendar.get_date()))
+        clear_date_button = ttk.Button(
+            master=self._frame, text="Clear expiry date", command=lambda: self._temp_exp.set("-"))
 
-        mod_misc_label = ttk.Label(master=self._frame, text="Modify additional info")
+        mod_misc_label = ttk.Label(
+            master=self._frame, text="Modify additional info")
         misc_entry = ttk.Entry(master=self._frame)
-        misc_button = ttk.Button(master=self._frame, text="Update", command=lambda:self._temp_misc.set(misc_entry.get()))
+        misc_button = ttk.Button(master=self._frame, text="Update",
+                                 command=lambda: self._temp_misc.set(misc_entry.get()))
 
-        save_button = ttk.Button(master=self._frame, text="Save", command=self.save_changes)
-        cancel_button = ttk.Button(master=self._frame, text="Cancel", command=lambda: self._handle_select_storage(operations.get_active_storage()))
-        delete_button = ttk.Button(master=self._frame, text="Delete item from storage", command=self.delete_item)
+        save_button = ttk.Button(
+            master=self._frame, text="Save", command=self.save_changes)
+        cancel_button = ttk.Button(master=self._frame, text="Cancel",
+                                   command=lambda: self._handle_select_storage(operations.get_active_storage()))
+        delete_button = ttk.Button(
+            master=self._frame, text="Delete item from storage", command=self.delete_item)
 
         title_n.grid(row=0, column=0)
         title_a.grid(row=0, column=1)
@@ -134,10 +150,12 @@ class EditItemView:
     def change_date(self, datestr):
         try:
             datelist = datestr.split(".")
-            std = date(int(datelist[2]),int(datelist[1]),int(datelist[0])).isoformat()
+            std = date(int(datelist[2]), int(
+                datelist[1]), int(datelist[0])).isoformat()
         except IndexError:
             datelist = datestr.split("/")
-            std = date(int(datelist[2]),int(datelist[1]),int(datelist[0])).isoformat()
+            std = date(int(datelist[2]), int(
+                datelist[1]), int(datelist[0])).isoformat()
         self._temp_exp.set(std)
 
     def delete_item(self):

@@ -34,7 +34,9 @@ class StorageManager:
 
     def if_monitored(self, storage_name, item_name):
         storage_id = self.find_storage_id(storage_name)
-        status = self._db.execute("SELECT monitored FROM Items WHERE storage_id=? AND item_name=?", [storage_id, item_name])
+        status = self._db.execute(
+            "SELECT monitored FROM Items WHERE storage_id=? AND item_name=?",
+            [storage_id, item_name])
         if status == "1":
             return True
         return False
@@ -54,19 +56,23 @@ class StorageManager:
     def find_all_items_in_storage(self, storage_name: str):
         storage_id = self.find_storage_id(storage_name)
         return self._db.execute(
-            "SELECT item_name, amount, minimum_amount, expiry_date, monitored, misc FROM Items WHERE storage_id=?",
+            """SELECT item_name, amount, minimum_amount,
+            expiry_date, monitored, misc FROM Items WHERE storage_id=?""",
             [storage_id]).fetchall()
 
     def insert_required_item_to_storage(self, storage_name: str, item_name: str,
                                         minimum_amount: int, required: int):
         storage_id = self.find_storage_id(storage_name)
         self._db.execute(
-            f"INSERT INTO Items (storage_id, item_name, minimum_amount, monitored) VALUES ({storage_id},?,?,?)",
-            [item_name, minimum_amount, required])
+            "INSERT INTO Items (storage_id, item_name, minimum_amount, monitored) VALUES (?,?,?,?)",
+            [storage_id, item_name, minimum_amount, required])
 
     def pick_item(self, item_name, storage_name):
         storage_id = self.find_storage_id(storage_name)
-        return self._db.execute("SELECT item_name, amount, minimum_amount, expiry_date, monitored, misc FROM Items WHERE storage_id=? AND item_name=?",[storage_id, item_name]).fetchall()
+        return self._db.execute(
+            """SELECT item_name, amount, minimum_amount, expiry_date,
+            monitored, misc FROM Items WHERE storage_id=? AND item_name=?""",
+            [storage_id, item_name]).fetchall()
 
     def delete_required_item_from_storage(self, storage_name: str, item_name: str):
         storage_id = self.find_storage_id(storage_name)
@@ -93,15 +99,18 @@ class StorageManager:
 
     def set_expiry_date(self, storage_name, item_name, exp_date):
         storage_id = self.find_storage_id(storage_name)
-        self._db.execute("UPDATE Items SET expiry_date=? WHERE storage_id=? AND item_name=?",[exp_date, storage_id, item_name])
+        self._db.execute("UPDATE Items SET expiry_date=? WHERE storage_id=? AND item_name=?", [
+                         exp_date, storage_id, item_name])
 
     def set_monitored_status(self, storage_name, item_name, monitored_status):
         storage_id = self.find_storage_id(storage_name)
-        self._db.execute("UPDATE Items SET monitored=? WHERE storage_id=? AND item_name=?", [monitored_status, storage_id, item_name])
+        self._db.execute("UPDATE Items SET monitored=? WHERE storage_id=? AND item_name=?", [
+                         monitored_status, storage_id, item_name])
 
     def set_misc(self, storage_name, item_name, misc):
         storage_id = self.find_storage_id(storage_name)
-        self._db.execute("UPDATE Items SET misc=? WHERE storage_id=? AND item_name=?", [misc, storage_id, item_name])
+        self._db.execute("UPDATE Items SET misc=? WHERE storage_id=? AND item_name=?", [
+                         misc, storage_id, item_name])
 
     def delete_all(self):
         self._db.execute("DELETE FROM Items")

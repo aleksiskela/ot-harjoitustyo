@@ -19,3 +19,13 @@
 - Testejä lisätty
 - Pylint ja automaattinen formatointi alustettu
 - Arkkitehtuuri-dokumentti lisätty dokumentaatioon
+
+## Viikko 5
+
+- Graafista käyttöliittymää kehitetty. 
+- Päänäkymästä voi siirtyä varastonäkymään. Varastonäkymä näyttää varaston tilan. Käyttäjä voi siirtyä muokkaamaan varaston sisältöä.
+- Käyttäjä voi poistaa olemassa olevan varaston.
+- Käyttäjä voi lisätä vaadittavia tavaroita varastoon.
+- Käyttäjä voi muokata vaadittavia tavaroita "Edit item" alasivulla.
+- Lisätty tkcalendar, jonka avulla voi valita vanhenemispäivän.
+- Testeihin lisätty Operations-luokka

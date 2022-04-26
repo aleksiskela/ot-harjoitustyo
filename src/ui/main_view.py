@@ -1,6 +1,7 @@
 from tkinter import ttk, constants
 from ops.operations import operations
 
+
 class MainView:
     def __init__(self, root, handle_select_storage, handle_create_storage):
         self._root = root

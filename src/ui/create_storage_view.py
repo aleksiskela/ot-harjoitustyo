@@ -18,7 +18,8 @@ class CreateStorageView:
         name_entry = ttk.Entry(master=self._frame)
         create_button = ttk.Button(master=self._frame, text="Create",
                                    command=lambda: self._create_storage(name_entry.get()))
-        cancel_button = ttk.Button(master=self._frame, text="Cancel", command=self._handle_return)
+        cancel_button = ttk.Button(
+            master=self._frame, text="Cancel", command=self._handle_return)
 
         label.grid(row=0, columnspan=3)
         name_label.grid(row=1, column=0)

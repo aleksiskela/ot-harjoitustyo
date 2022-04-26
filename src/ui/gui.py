@@ -5,6 +5,7 @@ from ui.edit_storage_view import EditStorageView
 from ui.edit_item_view import EditItemView
 from ops.operations import operations
 
+
 class GUI:
     def __init__(self, root):
         self._root = root
@@ -57,10 +58,12 @@ class GUI:
 
     def _show_edit_storage(self):
         self.destroy()
-        self._active_view = EditStorageView(self._root, self._handle_select_storage, self._handle_edit_storage, self._handle_return)
+        self._active_view = EditStorageView(
+            self._root, self._handle_select_storage, self._handle_edit_storage, self._handle_return)
         self._active_view.pack()
 
     def _show_edit_item(self):
         self.destroy()
-        self._active_view = EditItemView(self._root, self._handle_select_storage)
+        self._active_view = EditItemView(
+            self._root, self._handle_select_storage)
         self._active_view.pack()

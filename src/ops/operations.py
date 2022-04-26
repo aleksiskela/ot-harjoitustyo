@@ -1,4 +1,5 @@
 from repositories.storage_manager import StorageManager
+from ops.status_app import ItemStatus
 
 
 class Operations:
@@ -49,16 +50,20 @@ class Operations:
         return self._temp_items
 
     def add_new_required_item(self, item_name, min_amount, monitored):
-        self._manager.insert_required_item_to_storage(self._active_storage,item_name, min_amount, monitored)
+        self._manager.insert_required_item_to_storage(
+            self._active_storage, item_name, min_amount, monitored)
 
     def update_amount(self, new_amount):
-        self._manager.update_amount(self._active_storage, self._active_item, new_amount)
+        self._manager.update_amount(
+            self._active_storage, self._active_item, new_amount)
 
     def update_expiry_date(self, expiry_date):
-        self._manager.set_expiry_date(self._active_storage, self._active_item, expiry_date)
+        self._manager.set_expiry_date(
+            self._active_storage, self._active_item, expiry_date)
 
     def update_monitored_status(self, status):
-        self._manager.set_monitored_status(self._active_storage, self._active_item, status)
+        self._manager.set_monitored_status(
+            self._active_storage, self._active_item, status)
 
     def update_misc(self, misc):
         self._manager.set_misc(self._active_storage, self._active_item, misc)
@@ -68,8 +73,22 @@ class Operations:
             return "Monitored"
         return "Not monitored"
 
+    def check_item_status(self, item):
+        self.set_active_item(item)
+        data = self.get_active_item()
+        color = "black"
+        if data[4] == 1:
+            status = ItemStatus(data[1], data[2], data[3])
+            color = status.status
+        self.set_active_item(None)
+        return color
+
     def delete_item(self):
-        self._manager.delete_required_item_from_storage(self._active_storage, self._active_item)
+        self._manager.delete_required_item_from_storage(
+            self._active_storage, self._active_item)
+
+    def delete_all(self):
+        self._manager.delete_all()
 
 
 operations = Operations()
