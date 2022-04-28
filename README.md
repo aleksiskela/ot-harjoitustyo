@@ -2,6 +2,10 @@
 
 Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellään minimivarustelu ja tuotteita lisättäessä niille voidaan määritellä parasta ennen-päiväys. Sovelluksen graafisen käyttöliittymän avulla käyttäjä voi muokata ja seurata varaston tilaa.
 
+## Release
+
+[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/Viikko5) 
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](https://github.com/aleksiskela/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
@@ -14,13 +18,11 @@ Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellä�
 - Asenna riippuvuudet komennolla poetry install
 - Alusta tietokannat komennolla poetry run invoke initiate
 - Käynnistä graafinen käyttöliittymä komennolla poetry run invoke start
-  - Tässä vaiheessa toiminnoiltaan monipuolisempi tekstikäyttöliittymä käynnistetään kommennolla poetry run invoke cli
 
 ## Komentorivitoiminnot
 
 ### Ohjelman käynnistys
 Ohjelman graafinen käyttöliittymä suoritetaan kommennolla poetry run invoke start
-Ohjelman komentorivikäyttöliittymä suoritetaan komennolla poetry run invoke cli
 
 ### Testaus
 Testit voidaan suorittaa komennolla poetry run invoke test
