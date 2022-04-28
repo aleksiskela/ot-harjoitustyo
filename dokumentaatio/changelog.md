@@ -31,3 +31,8 @@
 - Testeihin lisätty Operations-luokka
 - Luotu ItemStatus-luokka, jonka tehtävä on tarkastaa tuotteen riittävyys ja ajantasaisuus. Tässä vaiheessa luokan avulla voidaan korostaa tuote punaisella, jos vaadittava määrä ei täyty, ja vihreällä jos määrä on riittävä. Jos tuote on merkitty "Not Monitored", tekstin väri on musta.
 - Arkkitehtuuri-dokumenttiin lisätty varaston luonti sekvenssikaaviona.
+
+## Viikko 6
+
+- ItemStatus-luokkaa kehitetty. Luokka korostaa oleellisen osan tuotteesta määritellyllä värillä riippuen tuotteen statuksesta.
+- StorageStatus-luokka luotu. Luokan tehtävä on samankaltainen kuin ItemStatus, mutta koko varaston osalta. Käyttäjä näkee etusivulta kaikkien varastojen yleistilanteen ja jäljellä olevat päivät ennen ensimmäisenä vanhenevan tuotteen vanhenemista. 

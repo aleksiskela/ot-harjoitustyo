@@ -37,7 +37,7 @@ class StorageManager:
         status = self._db.execute(
             "SELECT monitored FROM Items WHERE storage_id=? AND item_name=?",
             [storage_id, item_name])
-        if status == "1":
+        if status == 1:
             return True
         return False
 
@@ -96,6 +96,12 @@ class StorageManager:
         self._db.execute(
             "UPDATE Items SET amount=? WHERE storage_id=? AND item_name=?",
             [amount, storage_id, item_name])
+
+    def update_minimum_amount(self, storage_name, item_name, min_amount):
+        storage_id = self.find_storage_id(storage_name)
+        self._db.execute(
+            "UPDATE Items SET minimum_amount=? WHERE storage_id=? AND item_name=?",
+            [min_amount, storage_id, item_name])
 
     def set_expiry_date(self, storage_name, item_name, exp_date):
         storage_id = self.find_storage_id(storage_name)

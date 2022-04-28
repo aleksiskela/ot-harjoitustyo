@@ -1,5 +1,5 @@
 from repositories.storage_manager import StorageManager
-from ops.status_app import ItemStatus
+from ops.status_app import ItemStatus, StorageStatus
 
 
 class Operations:
@@ -57,6 +57,11 @@ class Operations:
         self._manager.update_amount(
             self._active_storage, self._active_item, new_amount)
 
+    def update_minimum_amount(self, new_minimum_amount):
+        self._manager.update_minimum_amount(
+            self._active_storage, self._active_item, new_minimum_amount
+        )
+
     def update_expiry_date(self, expiry_date):
         self._manager.set_expiry_date(
             self._active_storage, self._active_item, expiry_date)
@@ -76,12 +81,25 @@ class Operations:
     def check_item_status(self, item):
         self.set_active_item(item)
         data = self.get_active_item()
-        color = "black"
+        amount_color = None
+        exp_color = None
+        name_color = None
         if data[4] == 1:
             status = ItemStatus(data[1], data[2], data[3])
-            color = status.status
+            amount_color = status.amount_status
+            exp_color = status.exp_status
+            name_color = status.total_status
         self.set_active_item(None)
-        return color
+        return amount_color, exp_color, name_color
+
+    def check_storage_status(self, storage_name):
+        self.set_active_storage(storage_name)
+        all_items = self._manager.find_all_items_in_storage(self._active_storage)
+        stor_stat = StorageStatus(all_items)
+        totals = [stor_stat.totals, stor_stat.days_to_exp, stor_stat.colors]
+        self.set_active_storage(None)
+        return totals
+
 
     def delete_item(self):
         self._manager.delete_required_item_from_storage(
