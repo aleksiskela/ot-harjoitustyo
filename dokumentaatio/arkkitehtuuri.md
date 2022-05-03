@@ -19,7 +19,7 @@ Ohjelma käsittelee SQLite tietokantaa, johon tallennetaan tieto olemassa olevis
 
 Repositories-pakkauksen StorageManager käsittelee SQLite-tietokantaa. Tietokannassa on kaksi taulua: Storages ja Items. Storages-tauluun tallennetaan olemassa olevien varastojen nimet ja kokonaistäyttöaste. Items-taulu referoidaan Storages-tauluun ja siihen tallennetaan varastoitavat tavarat ja yksittäisten tavaroiden täyttöasteet. 
 
-![dbdiagram](./kuvat/Database%20dbdiagram.png)
+![dbdiagram](./kuvat/dbdiagram.png)
 
 Taulut alustetaan init_db.py-tiedostossa.
 
