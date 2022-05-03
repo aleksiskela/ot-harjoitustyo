@@ -4,7 +4,7 @@ Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellä�
 
 ## Release
 
-[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/Viikko5) 
+[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/viikko6) 
 
 ## Dokumentaatio
 
