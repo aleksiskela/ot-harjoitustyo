@@ -81,13 +81,14 @@ class EditStorageView:
             if req < 0:
                 self._error_popup("Required amount cannot be negative")
             elif operations.check_if_item_already_in_storage(name):
-                self._error_popup(f"{name} already listed for {operations.get_active_storage()}")
+                self._error_popup(
+                    f"{name} already listed for {operations.get_active_storage()}")
             else:
                 item = (name, req, mon)
                 operations.add_temp_item(item)
                 self.destroy()
                 self._handle_edit_storage()
-        except ValueError: 
+        except ValueError:
             self._error_popup("Required amount must be an integer")
 
     def list_temp_items(self, item):

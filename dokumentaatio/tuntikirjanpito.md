@@ -18,5 +18,5 @@
 | 26.4. | 6    | Operations-luokan testit aloitettu. Koodin yhteensopivuutta parannettu. Lisätty ItemStatus-luokka. GitHub relese.  |
 | 28.4. | 3    | Lisätty StorageStatus-luokka. Värikoodien ohjelmointia. |
 | 2.5.  | 2    | Virhesyötteiden käsittelyä. |
-| 3.5.  | 6    | Testejä lisätty, docstring-dokumentointi aloitettu, arkkitehtuuridokumenttia päivitetty. |
+| 3.5.  | 6    | Testejä lisätty, docstring-dokumentointi aloitettu, arkkitehtuuridokumenttia päivitetty, käyttöohje luotu. |
 | yht.  | 64   | |

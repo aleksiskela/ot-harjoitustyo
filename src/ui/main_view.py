@@ -35,9 +35,12 @@ class MainView:
 
         status = operations.check_storage_status(storage)
 
-        label = ttk.Label(master=storage_frame, text=storage, foreground=status[2][0])
-        status_label = ttk.Label(master=storage_frame, text=f"{status[0][0]} / {status[0][1]}", foreground=status[2][1])
-        days_to_exp_label = ttk.Label(master=storage_frame, text=status[1], foreground=status[2][2])
+        label = ttk.Label(master=storage_frame, text=storage,
+                          foreground=status[2][0])
+        status_label = ttk.Label(
+            master=storage_frame, text=f"{status[0][0]} / {status[0][1]}", foreground=status[2][1])
+        days_to_exp_label = ttk.Label(
+            master=storage_frame, text=status[1], foreground=status[2][2])
         button = ttk.Button(master=storage_frame, text="Open storage",
                             command=lambda: self._handle_select_storage(storage))
         label.grid(row=0, column=0, padx=3, sticky=constants.W)
@@ -49,8 +52,6 @@ class MainView:
         storage_frame.grid_columnconfigure(1, minsize=50)
         storage_frame.grid_columnconfigure(2, minsize=200)
         storage_frame.grid_columnconfigure(3, minsize=100)
-
-
 
         storage_frame.grid()
 

@@ -45,7 +45,8 @@ class TestOperations(unittest.TestCase):
 
     def test_check_status(self):
         o.update_expiry_date(date.today())
-        self.assertEqual(o.check_item_status("Testitem"), ("red", "orange", "red"))
+        self.assertEqual(o.check_item_status(
+            "Testitem"), ("red", "orange", "red"))
 
     def test_check_status_omits_non_monitored(self):
         o.update_monitored_status(0)
@@ -57,7 +58,8 @@ class TestOperations(unittest.TestCase):
         o.update_expiry_date(date(2030, 1, 1))
         o.update_misc("Testinfo")
         o.update_monitored_status(0)
-        self.assertEqual(o.get_active_item(), ("Testitem", 3, 3, "2030-01-01", 0, "Testinfo"))
+        self.assertEqual(o.get_active_item(), ("Testitem",
+                         3, 3, "2030-01-01", 0, "Testinfo"))
 
     def test_add_required_item(self):
         o.add_new_required_item("Teststuff", 2, 1)

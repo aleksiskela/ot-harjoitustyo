@@ -30,7 +30,8 @@ class CreateStorageView:
     def _error_popup(self):
         popup = Toplevel(master=self._frame)
         popup.title("Input error")
-        popup_label = ttk.Label(master=popup, text="A storage by the same name already exists")
+        popup_label = ttk.Label(
+            master=popup, text="A storage by the same name already exists")
         popup_label.grid(padx=10, pady=10)
 
     def pack(self):

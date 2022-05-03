@@ -67,7 +67,6 @@ class StorageView:
         item_frame.grid_columnconfigure(4, minsize=200)
         item_frame.grid_columnconfigure(5, minsize=100)
 
-
         item_frame.grid()
         # item_frame.pack(fill=constants.X)
 

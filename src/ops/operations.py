@@ -4,11 +4,14 @@ from ops.status_app import ItemStatus, StorageStatus
 
 class Operations:
     """Sovelluslogiikasta vastaava luokka. Luokka ottaa vastaan kutsuja käyttöliittymästä,
-    kutsuu StoragManager-luokkaa tietokantojen käsittelyä varten ja kutsuu ItemStatus- ja StorageStatus-luokkia
-    tavaran ja varaston täyttötilanteen tarkastelua varten"""
+    kutsuu StoragManager-luokkaa tietokantojen käsittelyä varten ja kutsuu ItemStatus-
+    ja StorageStatus-luokkia tavaran ja varaston täyttötilanteen tarkastelua varten
+    """
 
     def __init__(self):
-        """Luokan konstruktori luo yhteyden StorageManager-luokkaan ja alustaa tarvittavat luokkamuuttujat"""
+        """Luokan konstruktori luo yhteyden StorageManager-
+        luokkaan ja alustaa tarvittavat luokkamuuttujat
+        """
 
         self._manager = StorageManager()
         self._active_storage = None
@@ -17,7 +20,7 @@ class Operations:
 
     def get_all_storages(self):
         """Palauttaa listan olemassa olevien varastojen nimistä
-        
+
         Returns:
             Lista varastojen nimistä
         """
@@ -28,7 +31,7 @@ class Operations:
 
     def create_intro_text(self):
         """Luo päänäkymän tekstin riippuen siitä yhtään varastoa luotu
-        
+
         Returns:
             Merkkijono, josta muodostetaan päänäkymän teksti
         """
@@ -39,7 +42,7 @@ class Operations:
 
     def check_if_storage_already_exists(self, storage_name):
         """Välittää kyselyn, jolla tarkastetaan, onko saman niminen varasto jo olemassa
-        
+
         Args:
             Varaston nimi
 
@@ -53,7 +56,7 @@ class Operations:
 
     def check_if_item_already_in_storage(self, item_name):
         """Välittää kyselyn, jolla tarkastetaan, onko saman niminen tavara jo kyseisessä varastossa
-        
+
         Args:
             Tavaran nimi
 
@@ -81,7 +84,8 @@ class Operations:
         self._manager.delete_storage(self._active_storage)
 
     def set_active_storage(self, storage):
-        """Asettaa parametrinä olevan varaston nimen luokkamuuttujan _active_storage arvoksi luokan operaatioita varten
+        """Asettaa parametrinä olevan varaston nimen
+        luokkamuuttujan _active_storage arvoksi luokan operaatioita varten
 
         Args:
             Varaston nimi
@@ -91,7 +95,7 @@ class Operations:
 
     def get_active_storage(self):
         """Palauttaa _active_storage-luokkamuuttujan arvon
-        
+
         Returns:
             Käsiteltävän varaston nimi
         """
@@ -99,7 +103,8 @@ class Operations:
         return self._active_storage
 
     def set_active_item(self, item_name):
-        """Asettaa parametrinä olevan tavaran nimen luokkamuuttujan _active_item arvoksi luokan operaatioita varten
+        """Asettaa parametrinä olevan tavaran nimen
+        luokkamuuttujan _active_item arvoksi luokan operaatioita varten
 
         Args:
             Tavaran nimi
@@ -109,9 +114,10 @@ class Operations:
 
     def get_active_item(self):
         """Palauttaa _active_item- ja _active_storage luokkamuuttujien mukaisen tuotteen.
-        
+
         Returns:
-            Käsiteltävän tavaran nimi, määrä, minimimäärä, vanhenemispäivä, tarkasteltava-valinta, lisätieto
+            Käsiteltävän tavaran nimi, määrä, minimimäärä,
+            vanhenemispäivä, tarkasteltava-valinta, lisätieto
         """
 
         return self._manager.pick_item(self._active_item, self._active_storage)[0]
@@ -120,13 +126,14 @@ class Operations:
         """Välittää kyselyn joka palauttaa kaikki tavarat varastossa
 
         Returns:
-            Lista _active_storage-varaston kaikista tuotteista 
+            Lista _active_storage-varaston kaikista tuotteista
         """
 
         return self._manager.find_all_items_in_storage(self._active_storage)
 
     def add_temp_item(self, item: tuple):
-        """Lisää tuotteen _temp_items-luokkamuuttujaan. Muuttujaa käytetään väliaikaisena tallennuspaikkana varastoon lisättäville tuotteille.
+        """Lisää tuotteen _temp_items-luokkamuuttujaan.
+        Muuttujaa käytetään väliaikaisena tallennuspaikkana varastoon lisättäville tuotteille.
         Args:
             Tuple joka sisältää tuotteen nimen, minimimäärän ja tarkasteltava-valinnan
         """
@@ -148,7 +155,8 @@ class Operations:
     def add_new_required_item(self, item_name, min_amount, monitored):
         """Välittää tietokantaoperaation, jolla lisätään valittu tuote tietokantaan
         Args:
-            Tuotteen nimi, minimimäärä ja tarkasteltava-valinta. Käyttöliittymä käsittelee luokan _temp_items-listaa,
+            Tuotteen nimi, minimimäärä ja tarkasteltava-valinta.
+            Käyttöliittymä käsittelee luokan _temp_items-listaa,
             jonka arvot välitetään metodin parametreinä.
         """
 
@@ -157,7 +165,7 @@ class Operations:
 
     def update_amount(self, new_amount):
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran määrästä
-        
+
         Args:
             Uusi määrä
         """
@@ -167,7 +175,7 @@ class Operations:
 
     def update_minimum_amount(self, new_minimum_amount):
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran mimimimäärästä
-        
+
         Args:
             Uusi minimimäärä
         """
@@ -177,7 +185,7 @@ class Operations:
 
     def update_expiry_date(self, expiry_date):
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran vanhenemispäivästä
-        
+
         Args:
             Uusi vanhenemispäivämäärä
         """
@@ -187,7 +195,7 @@ class Operations:
 
     def update_monitored_status(self, status):
         """Välittää tietokantaoperaation jolla muutetaan tarkasteltava-valinta
-        
+
         Args:
             Tarkestaltava-valinta (1 tai 0)
         """
@@ -197,7 +205,7 @@ class Operations:
 
     def update_misc(self, misc):
         """Välittää tietokantaoperaation jolla muutetaan tavaran lisätietokentän arvo
-        
+
         Args:
             Uusi lisätieto
         """
@@ -206,10 +214,10 @@ class Operations:
 
     def monitored_message(self, value):
         """Palauttaa merkkijonon joka näytetään käyttöliittymässä
-        
+
         Args:
             1 tai 0 riippuen riippuen tavaran tarkasteltava-valinnasta
-        
+
         Returns:
             Merkkijono joka ilmaisee onko tuote tarkatelun alainen.
         """
@@ -219,8 +227,9 @@ class Operations:
         return "Not monitored"
 
     def check_item_status(self, item):
-        """Kutsuu ItemStatus-luokkaa jonka tehtävänä on määrittää tuotteen täyttöaste ja ilmaista tieto värikoodein
-        
+        """Kutsuu ItemStatus-luokkaa jonka tehtävänä on määrittää
+        tuotteen täyttöaste ja ilmaista tieto värikoodein
+
         Args:
             Tuotteen nimi
         Returns:
@@ -241,23 +250,26 @@ class Operations:
         return amount_color, exp_color, name_color
 
     def check_storage_status(self, storage_name):
-        """Kutsuu StorageStatus-luokkaa jonka tehtävä on määrittää varaston täyttöaste. StorageStatus-luokka palauttaa
-        tiedon varaston täyttöasteesta, jäljellä olevista päivistä ennen vanhemista ja värikoodin jolla tieto ilmaistaan käyttöliittymässä.
-        
+        """Kutsuu StorageStatus-luokkaa jonka tehtävä on määrittää varaston täyttöaste.
+        StorageStatus-luokka palauttaa tiedon varaston täyttöasteesta,
+        jäljellä olevista päivistä ennen vanhemista ja
+        värikoodin jolla tieto ilmaistaan käyttöliittymässä.
+
         Args:
             Varaston nimi
-            
+
         Returns:
-            Lista joka sisältää tiedot joita käyttöliittymän päänäkymä käyttää varaston tietojen ilmaisemiseen
+            Lista joka sisältää tiedot joita käyttöliittymän
+            päänäkymä käyttää varaston tietojen ilmaisemiseen
         """
 
         self.set_active_storage(storage_name)
-        all_items = self._manager.find_all_items_in_storage(self._active_storage)
+        all_items = self._manager.find_all_items_in_storage(
+            self._active_storage)
         stor_stat = StorageStatus(all_items)
         totals = [stor_stat.totals, stor_stat.days_to_exp, stor_stat.colors]
         self.set_active_storage(None)
         return totals
-
 
     def delete_item(self):
         """Välittää tietokanta-operaation jolla poistetaan tuote minimivarustelusta"""

@@ -14,7 +14,7 @@ class StorageManager:
 
         Args:
             Käsiteltävän varaston nimi
-        
+
         Returns:
             Käsiteltävän varaston id Storages-taulusta
         """
@@ -25,7 +25,7 @@ class StorageManager:
 
     def if_storage_exists(self, storage_name: str):
         """Tarkastaa onko varasto nimi käytössä
-        
+
         Args:
             Tarkasteltavan varaston nimi
 
@@ -79,7 +79,7 @@ class StorageManager:
 
         Args:
             Varaston nimi ja tavaran nimi
-        
+
         Returns:
             True jos tavara merkattu tarkkailtavaksi
             False jos tavara merkatty ei-tarkkailtavaksi
@@ -94,7 +94,7 @@ class StorageManager:
 
     def create_new_storage(self, storage_name: str):
         """Lisää uuden varaston nimen tietokannan Storages-tauluun
-        
+
         Args:
             Varaston nimi
         """
@@ -104,7 +104,7 @@ class StorageManager:
 
     def view_storages(self):
         """Kysely palauttaa kaikkien varastojen nimen
-        
+
         Returns:
             Lista olemassa olevien varastojen nimistä
         """
@@ -124,10 +124,10 @@ class StorageManager:
 
     def find_all_items_in_storage(self, storage_name: str):
         """Kysely palauttaa listan varaston tavaroista
-        
+
         Args:
             Varaston nimi
-        
+
         Returns:
             Lista varaston tavaroista. Kysely palauttaa kunkin tavaran nimen, määrän, minimimäärän,
             vanhenemispäivän, tarkastelu-valinnan ja vapaan lisätietomerkkijonon.
@@ -158,7 +158,8 @@ class StorageManager:
             Tavaran nimi ja varaston nimi
 
         Return:
-            Varastossa olevan tavaran nimi, määrä, minimimäärä, vanhenemispäivä, tarkasteltava-valinta ja lisätieto        
+            Varastossa olevan tavaran nimi, määrä, minimimäärä,
+            vanhenemispäivä, tarkasteltava-valinta ja lisätieto
         """
 
         storage_id = self._find_storage_id(storage_name)
@@ -180,7 +181,7 @@ class StorageManager:
 
     def load_item(self, storage_name, item, amount):
         """Komentorivikäyttöliittymää varten oleva metodi lisää tavaran määrää.
-        
+
         Args:
             Varaston nimi, tavaran nimi ja lisättävä lukumäärä
         """
@@ -192,7 +193,7 @@ class StorageManager:
 
     def use_item(self, storage_name, item, amount):
         """Komentorivikäyttöliittymää varten oleva metodi vähentää tavaran määrää.
-        
+
         Args:
             Varaston nimi, tavaran nimi ja vähennettävä lukumäärä
         """
@@ -204,7 +205,7 @@ class StorageManager:
 
     def update_amount(self, storage_name, item_name, amount):
         """Päivittää Items-tauluun tavaran lukumäärän
-        
+
         Args:
             Varaston nimi, tavaran nimi, uusi määrä
         """

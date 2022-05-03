@@ -40,3 +40,4 @@
 - Docstring-dokumentaatio aloitettu.
 - Operations-luokan testejä lisätty.
 - Arkkitehtuuri-dokumenttiin lisätty sekvenssikaavioita.
+- Käyttöohjeen ensimmäinen versio luotu

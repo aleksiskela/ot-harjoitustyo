@@ -74,7 +74,7 @@ class EditItemView:
         mod_misc_label = ttk.Label(
             master=self._frame, text="Additional information")
         misc_entry = ttk.Entry(master=self._frame)
-        misc_button = ttk.Button(master=self._frame, text="Update info",
+        misc_button = ttk.Button(master=self._frame, text="Update additional info",
                                  command=lambda: self._temp_misc.set(misc_entry.get()))
 
         save_button = ttk.Button(
