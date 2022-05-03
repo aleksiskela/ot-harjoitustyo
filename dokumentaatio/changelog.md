@@ -36,3 +36,7 @@
 
 - ItemStatus-luokkaa kehitetty. Luokka korostaa oleellisen osan tuotteesta määritellyllä värillä riippuen tuotteen statuksesta.
 - StorageStatus-luokka luotu. Luokan tehtävä on samankaltainen kuin ItemStatus, mutta koko varaston osalta. Käyttäjä näkee etusivulta kaikkien varastojen yleistilanteen ja jäljellä olevat päivät ennen ensimmäisenä vanhenevan tuotteen vanhenemista. 
+- Virhesyötteiden käsittelyä parannettu.
+- Docstring-dokumentaatio aloitettu.
+- Operations-luokan testejä lisätty.
+- Arkkitehtuuri-dokumenttiin lisätty sekvenssikaavioita.

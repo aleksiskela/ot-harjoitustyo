@@ -1,4 +1,4 @@
-from tkinter import ttk, constants
+from tkinter import Toplevel, ttk, constants
 from ops.operations import operations
 
 
@@ -27,6 +27,12 @@ class CreateStorageView:
         create_button.grid(row=2, column=1, sticky=constants.W)
         cancel_button.grid(row=2, column=1, sticky=constants.E)
 
+    def _error_popup(self):
+        popup = Toplevel(master=self._frame)
+        popup.title("Input error")
+        popup_label = ttk.Label(master=popup, text="A storage by the same name already exists")
+        popup_label.grid(padx=10, pady=10)
+
     def pack(self):
         self._frame.pack(fill=constants.X)
 
@@ -34,5 +40,8 @@ class CreateStorageView:
         self._frame.destroy()
 
     def _create_storage(self, name):
-        operations.create_new_storage(name)
-        self._handle_return()
+        if operations.check_if_storage_already_exists(name):
+            self._error_popup()
+        else:
+            operations.create_new_storage(name)
+            self._handle_return()

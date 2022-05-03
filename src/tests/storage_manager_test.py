@@ -33,7 +33,7 @@ class TestStorage_manager(unittest.TestCase):
             "Testorage", "NotTestitem"), False)
 
     def test_find_storage_id_returns_correct_id(self):
-        self.assertEqual(self.manager.find_storage_id(self.s), 1)
+        self.assertEqual(self.manager._find_storage_id(self.s), 1)
 
     def test_if_storage_exists_return_true_if_storage_does_exist(self):
         self.assertEqual(self.manager.if_storage_exists("Testorage"), True)

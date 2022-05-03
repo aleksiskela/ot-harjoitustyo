@@ -1,5 +1,6 @@
 import unittest
 from ops.operations import operations as o
+from datetime import date
 
 
 class TestOperations(unittest.TestCase):
@@ -28,6 +29,14 @@ class TestOperations(unittest.TestCase):
         self.assertEqual(o.create_intro_text(),
                          "No storages created yet. Start by creating one.")
 
+    def test_check_if_storage_exists(self):
+        self.assertEqual(o.check_if_storage_already_exists("Testorage"), True)
+        self.assertEqual(o.check_if_storage_already_exists("Other"), False)
+
+    def test_check_if_item_in_storage(self):
+        self.assertEqual(o.check_if_item_already_in_storage("Testitem"), True)
+        self.assertEqual(o.check_if_item_already_in_storage("Else"), False)
+
     def test_get_active_storage(self):
         self.assertEqual(o.get_active_storage(), "Testorage")
 
@@ -35,7 +44,40 @@ class TestOperations(unittest.TestCase):
         self.assertEqual(o.get_active_item(), ("Testitem", 0, 2, "-", 1, "-"))
 
     def test_check_status(self):
-        self.assertEqual(o.check_item_status("Testitem"), "red")
+        o.update_expiry_date(date.today())
+        self.assertEqual(o.check_item_status("Testitem"), ("red", "orange", "red"))
+
+    def test_check_status_omits_non_monitored(self):
+        o.update_monitored_status(0)
+        self.assertEqual(o.check_item_status("Testitem"), (None, None, None))
+
+    def test_check_updates(self):
+        o.update_amount(3)
+        o.update_minimum_amount(3)
+        o.update_expiry_date(date(2030, 1, 1))
+        o.update_misc("Testinfo")
+        o.update_monitored_status(0)
+        self.assertEqual(o.get_active_item(), ("Testitem", 3, 3, "2030-01-01", 0, "Testinfo"))
 
     def test_add_required_item(self):
-        pass
+        o.add_new_required_item("Teststuff", 2, 1)
+        self.assertEqual(len(o.get_all_items()), 2)
+        self.assertEqual(o.get_all_items()[1][0], "Teststuff")
+
+    def test_monitored_message(self):
+        self.assertEqual(o.monitored_message(1), "Monitored")
+        self.assertEqual(o.monitored_message(0), "Not monitored")
+
+    def test_delete_item(self):
+        o.delete_item()
+        self.assertEqual(len(o.get_all_items()), 0)
+
+    def test_add_temp_item(self):
+        o.add_temp_item(("Teststuff", 3, 1))
+        self.assertEqual(len(o.get_temp_items()), 1)
+        self.assertEqual(o.get_temp_items(), [("Teststuff", 3, 1)])
+
+    def test_clear_temp_items(self):
+        o.add_temp_item(("Teststuff", 3, 1))
+        o.clear_temp_items()
+        self.assertEqual(len(o.get_temp_items()), 0)

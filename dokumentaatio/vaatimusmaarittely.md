@@ -15,8 +15,8 @@ Sovelluksella on lähtökohtaisesti vain yksi käyttäjäprofiili
 - [x] Käyttäjä näkee varastojen statuksen
   - [x] Varaston nimen vieressä varaston täyttöaste formaatissa ##/##
   - [x] Rivi korostettuna vihreällä, jos kaikki kunnossa
-  - [x] Rivi korostettuna keltaisella, jos jokin tuote vanhenemassa pian tai kun täyttöaste alle täyden
-  - [x] Rivi korostettuna punaisella, jos jokin tuote vanhentunut tai kun täyttöaste yli 25% alle täyden
+  - [x] Rivi korostettuna keltaisella, jos jokin tuote vanhenemassa pian tai kun täyttöaste 75-99 % 
+  - [x] Rivi korostettuna punaisella, jos jokin tuote vanhentunut tai kun täyttöaste alle 75 %
 - [x] Käyttäjä voi luoda uuden varaston
 - [x] Käyttäjä voi avata varaston tarkastelua tai muokkausta varten
 

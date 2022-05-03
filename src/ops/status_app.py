@@ -2,20 +2,32 @@ from datetime import date, timedelta
 
 
 class ItemStatus:
+    """Tavaran täyttöasteen tarkastelusta vastaava luokka. Luokan metodit määrittelevät luokan muuttujien arvot, jotka Operations-luokka
+    välittää käyttöliittymälle"""
+
     def __init__(self, amount, min_amount, expdate):
+        """Luokan konstruktorissa tarkasteltavat muuttujat saavat arvonsa parametreista ja alustaa palautettavat muuttujat.
+        Konstruktori myös käynnistää tarkastelumetodit.
+        
+        Args:
+            Määrä, minimimäärä ja vanhenemispäivämäärä.    
+        """
+
         self._amount = amount
         self._min_amount = min_amount
         self._expdate = expdate
         self.amount_status = None
         self.exp_status = None
         self.total_status = None
-        self.remaining_days = None
+        # self.remaining_days = None
 
         self._check_amount()
         self._check_expdate()
         self._determine_total_status()
 
     def _check_amount(self):
+        """Tarkastelee tavaran määrää suhteessa minimimäärään ja määrittelee sen perusteella määrälle värikoodin"""
+
         if self._amount < 3/4*self._min_amount:
             self.amount_status = "red"
         elif self._amount >= self._min_amount:
@@ -24,19 +36,24 @@ class ItemStatus:
             self.amount_status = "orange"
 
     def _check_expdate(self):
+        """Tarkastelee tavaran vanhenemispäivää suhteessa nykyhetkeen ja määrittelee sen perusteella värikoodin.
+        Jos tavaralle ei ole määritelty vanhenemispäivää, jää tavara tarkastelun ulkopuolelle ja saa värikoodikseen arvon None"""
+
         if self._expdate != "-":
             temp = self._expdate.split("-")
             expdate = date(int(temp[0]), int(temp[1]), int(temp[2]))
             delta = expdate - date.today()
 
-            if delta > timedelta(0):
+            if delta > timedelta(2):
                 self.exp_status = "green"
-            elif delta == timedelta(0):
-                self.exp_status = "orange"
             elif delta < timedelta(0):
                 self.exp_status = "red"
+            else:
+                self.exp_status = "orange"
 
     def _determine_total_status(self):
+        """Metodi tarkastelee aikaisemmin määriteltyjä muuttujien arvoja ja määrittelee niiden perusteella tavaralle lopullisen värikoodin"""
+
         self.total_status = "green"
         if self.amount_status == "orange" or self.exp_status == "orange":
             self.total_status = "orange"
@@ -44,7 +61,15 @@ class ItemStatus:
             self.total_status = "red"
 
 class StorageStatus:
+    """Varaston täyttöasteen tarkastelusta vastaava luokka. Operations-luokka välittää tiedot käyttöliittymälle"""
+
     def __init__(self, all_items):
+        """Luokan konstruktori saa parametrikseen varaston kaikki tuotteet määrittelee tarkasteltavat muuttujat ja alustaa palautusmuutujat.
+        Konstuktori myös käynnistää tarkastelumoetodit
+        
+        Args:
+            Lista kaikista varaston tuotteista"""
+
         self._all_items = all_items
         self.totals = ()
         self.days_to_exp = None
@@ -62,6 +87,11 @@ class StorageStatus:
 
 
     def _total_amount(self):
+        """Metodi laskee varaston tavaroiden täyttömäärää. Jos tuote on tarkastelun alainen (listan alkion indeksi 4 perusteella),
+        tarkastetaan täyttyykö tuotteen minimimäärä. Jos kyllä tai jos tavara ei ole tarkasteltava, kasvatetaan saturated_amount-apumuuttujan
+        arvoa. Lopuksi apumuuttujan arvo ja varaston tavaroiden lukumäärä tallennetaan tuplena totals-muuttujaan.
+        """
+
         saturated_amount = 0
         total_items = len(self._all_items)
         for item in self._all_items:
@@ -73,6 +103,11 @@ class StorageStatus:
         self.totals = saturated_amount, total_items
 
     def _days_until_expiry(self):
+        """Metodi tarkastelee varaston tavaroiden vanhemispäivämääriä. Jos tavaralle ei ole määritelty vanhenemispäivää,
+        niin se jätetään tarkastelun ulkopuolelle. Metodi määrittelee lyhyimmän vanhenemisajan nykyhetkeen nähden ja määrittelee
+        ajan perusteella vanhenemisajalle värikoodin. Lyhyin vanhenemisaika tallennetaan merkkijonona days_to_exp-muuttujaan.
+        Värikoodi tallennetaan exp_color-muuttujaan."""
+
         deltae = []
         for item in self._all_items:
             if item[3] != "-":
@@ -96,6 +131,9 @@ class StorageStatus:
 
 
     def _determine_colors(self):
+        """Metodi määrittelee värikoodit varaston täyttöasteelle ja vertailee määriteltyjä värikoodeja määrittääkseen
+        yhteisvärikoodin varastolle"""
+
         if self.totals[1] == 0:
             self.totals_color == None
         else:

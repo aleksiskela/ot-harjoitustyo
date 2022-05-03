@@ -16,5 +16,7 @@
 | 14.4. | 3    | tkcalendarin opettelu ja implementointi |
 | 23.4. | 4    | GUI toiminnallisuutta lisätty mm tavaroiden lisääminen, muokkaaminen ja poistaminen |
 | 26.4. | 6    | Operations-luokan testit aloitettu. Koodin yhteensopivuutta parannettu. Lisätty ItemStatus-luokka. GitHub relese.  |
-| 28.4. | 3    | Värikoodien ohjelmointia. |
-| yht.  | 53   | |
+| 28.4. | 3    | Lisätty StorageStatus-luokka. Värikoodien ohjelmointia. |
+| 2.5.  | 2    | Virhesyötteiden käsittelyä. |
+| 3.5.  | 6    | Testejä lisätty, docstring-dokumentointi aloitettu, arkkitehtuuridokumenttia päivitetty. |
+| yht.  | 64   | |

@@ -1,4 +1,4 @@
-from tkinter import ttk, constants, Checkbutton, IntVar
+from tkinter import Toplevel, ttk, constants, Checkbutton, IntVar
 from ops.operations import operations
 
 
@@ -49,8 +49,8 @@ class EditStorageView:
                                       variable=essential, onvalue=1, offvalue=0)
         add_item_button = ttk.Button(master=entry_frame,
                                      text="Add required item",
-                                     command=lambda: self._add_temp_item((item_name_entry.get(),
-                                                                         min_amount_entry.get(), essential.get())))
+                                     command=lambda: self._add_temp_item(item_name_entry.get(),
+                                                                         min_amount_entry.get(), essential.get()))
 
         item_name_entry.grid(row=0, column=0)
         min_amount_entry.grid(row=0, column=1)
@@ -75,10 +75,20 @@ class EditStorageView:
 
         footer_frame.grid(column=1, sticky=constants.W)
 
-    def _add_temp_item(self, item):
-        operations.add_temp_item(item)
-        self.destroy()
-        self._handle_edit_storage()
+    def _add_temp_item(self, name, req, mon):
+        try:
+            req = int(req)
+            if req < 0:
+                self._error_popup("Required amount cannot be negative")
+            elif operations.check_if_item_already_in_storage(name):
+                self._error_popup(f"{name} already listed for {operations.get_active_storage()}")
+            else:
+                item = (name, req, mon)
+                operations.add_temp_item(item)
+                self.destroy()
+                self._handle_edit_storage()
+        except ValueError: 
+            self._error_popup("Required amount must be an integer")
 
     def list_temp_items(self, item):
         temp_frame = ttk.Frame(master=self._frame)
@@ -91,6 +101,12 @@ class EditStorageView:
         for item in operations.get_temp_items():
             operations.add_new_required_item(item[0], item[1], item[2])
         self._handle_select_storage(operations.get_active_storage())
+
+    def _error_popup(self, message):
+        popup = Toplevel(master=self._frame)
+        popup.title("Input error")
+        msg_label = ttk.Label(master=popup, text=message)
+        msg_label.grid(padx=10, pady=10)
 
     def _delete_storage(self):
         operations.delete_storage()
