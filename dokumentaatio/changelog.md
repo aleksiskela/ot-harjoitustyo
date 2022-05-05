@@ -41,3 +41,8 @@
 - Operations-luokan testejä lisätty.
 - Arkkitehtuuri-dokumenttiin lisätty sekvenssikaavioita.
 - Käyttöohjeen ensimmäinen versio luotu
+
+## Viikko 7
+
+- status_app_test.py-tiedosto lisätty. Testikattavuus nostettu yli 90 prosentin.
+- 

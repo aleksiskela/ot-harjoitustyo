@@ -22,7 +22,6 @@ class ItemStatus:
         self.amount_status = None
         self.exp_status = None
         self.total_status = None
-        # self.remaining_days = None
 
         self._check_amount()
         self._check_expdate()
@@ -74,6 +73,9 @@ class ItemStatus:
 class StorageStatus:
     """Varaston täyttöasteen tarkastelusta vastaava luokka.
     Operations-luokka välittää tiedot käyttöliittymälle
+
+    Attributes:
+        all_items: Lista varaston tavaroista
     """
 
     def __init__(self, all_items):
@@ -82,7 +84,7 @@ class StorageStatus:
         Konstuktori myös käynnistää tarkastelumoetodit
 
         Args:
-            Lista kaikista varaston tuotteista
+            all_items: Lista kaikista varaston tuotteista
         """
 
         self._all_items = all_items

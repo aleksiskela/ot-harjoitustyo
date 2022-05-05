@@ -54,6 +54,20 @@ class Operations:
             return True
         return False
 
+    def check_storage_name(self, storage_name: str):
+        """Tarkastaa että varaston nimi ei ole tyhjä merkkijono ja palauttaa True jos näin on
+        
+        Args:
+            storage_name: varaston nimi
+            
+        Returns:
+            True jos syöte on tyhjä rivi
+        """
+
+        if len(storage_name) == 0:
+            return True
+
+
     def check_if_item_already_in_storage(self, item_name):
         """Välittää kyselyn, jolla tarkastetaan, onko saman niminen tavara jo kyseisessä varastossa
 
@@ -131,9 +145,39 @@ class Operations:
 
         return self._manager.find_all_items_in_storage(self._active_storage)
 
+    def check_temp_item_input(self, item_name, min_req):
+        """Tarkastaa lisättävän tavaran syötteen oikeellisuuden
+        ja virhesyötteen tapauksessa palauttaa virheviestin.
+        
+        Args:
+            item_name: Lisättävän tavaran nimi
+            min_req: vaadittava minimimäärä
+            
+        Return:
+            Merkkijono joka ilmaisee virhellisen syötteen, muuten None
+        """
+        
+        try:
+            min_req = int(min_req)
+        except ValueError:
+            return "Required amount must be an integer"
+
+        if min_req < 0:
+            return "Required amount cannot be negative"
+
+        elif len(item_name) == 0:
+            return "Item name must contain at least one character"
+
+        elif self.check_if_item_already_in_storage(item_name):
+            return f"{item_name} already listed for {self.get_active_storage()}"
+
+        elif item_name in [temp_item[0] for temp_item in self._temp_items if temp_item[0] == item_name]:
+            return f"{item_name} already to be added"
+        
+
     def add_temp_item(self, item: tuple):
-        """Lisää tuotteen _temp_items-luokkamuuttujaan.
-        Muuttujaa käytetään väliaikaisena tallennuspaikkana varastoon lisättäville tuotteille.
+        """Lisää tavaran _temp_items-luokkamuuttujaan.
+        Muuttujaa käytetään väliaikaisena tallennuspaikkana varastoon lisättäville tavaroille.
         Args:
             Tuple joka sisältää tuotteen nimen, minimimäärän ja tarkasteltava-valinnan
         """

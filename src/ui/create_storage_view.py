@@ -27,11 +27,11 @@ class CreateStorageView:
         create_button.grid(row=2, column=1, sticky=constants.W)
         cancel_button.grid(row=2, column=1, sticky=constants.E)
 
-    def _error_popup(self):
+    def _error_popup(self, error_msg):
         popup = Toplevel(master=self._frame)
         popup.title("Input error")
         popup_label = ttk.Label(
-            master=popup, text="A storage by the same name already exists")
+            master=popup, text=error_msg)
         popup_label.grid(padx=10, pady=10)
 
     def pack(self):
@@ -41,8 +41,16 @@ class CreateStorageView:
         self._frame.destroy()
 
     def _create_storage(self, name):
-        if operations.check_if_storage_already_exists(name):
-            self._error_popup()
+        error = None
+        name = name.strip()
+        
+        if operations.check_storage_name(name):
+            error = "The name must have at least one character"
+        elif operations.check_if_storage_already_exists(name):
+            error = "A storage by the same name already exists"
+
+        if error:
+            self._error_popup(error)
         else:
             operations.create_new_storage(name)
             self._handle_return()

@@ -76,20 +76,20 @@ class EditStorageView:
         footer_frame.grid(column=1, sticky=constants.W)
 
     def _add_temp_item(self, name, req, mon):
-        try:
-            req = int(req)
-            if req < 0:
-                self._error_popup("Required amount cannot be negative")
-            elif operations.check_if_item_already_in_storage(name):
-                self._error_popup(
-                    f"{name} already listed for {operations.get_active_storage()}")
-            else:
-                item = (name, req, mon)
-                operations.add_temp_item(item)
-                self.destroy()
-                self._handle_edit_storage()
-        except ValueError:
-            self._error_popup("Required amount must be an integer")
+        req = req.strip()
+        if len(req) == 0:
+            req = 0
+
+        name = name.strip()
+        error = operations.check_temp_item_input(name, req)
+
+        if error:
+            self._error_popup(error)
+        else:
+            item = (name, int(req), mon)
+            operations.add_temp_item(item)
+            self.destroy()
+            self._handle_edit_storage()
 
     def list_temp_items(self, item):
         temp_frame = ttk.Frame(master=self._frame)

@@ -6,6 +6,7 @@ from datetime import date
 class TestOperations(unittest.TestCase):
     def setUp(self):
         o.delete_all()
+        o.clear_temp_items()
         o.create_new_storage("Testorage")
         o.set_active_storage("Testorage")
         o.add_new_required_item("Testitem", 2, 1)
@@ -32,6 +33,12 @@ class TestOperations(unittest.TestCase):
     def test_check_if_storage_exists(self):
         self.assertEqual(o.check_if_storage_already_exists("Testorage"), True)
         self.assertEqual(o.check_if_storage_already_exists("Other"), False)
+
+    def test_check_storage_name_when_str_is_empty(self):
+        self.assertEqual(o.check_storage_name(""), True)
+
+    def test_check_storage_name_when_str_ok(self):
+        self.assertEqual(o.check_storage_name("TestContainer"), None)
 
     def test_check_if_item_in_storage(self):
         self.assertEqual(o.check_if_item_already_in_storage("Testitem"), True)
@@ -83,3 +90,25 @@ class TestOperations(unittest.TestCase):
         o.add_temp_item(("Teststuff", 3, 1))
         o.clear_temp_items()
         self.assertEqual(len(o.get_temp_items()), 0)
+
+    def test_check_item_input_ok(self):
+        self.assertEqual(o.check_temp_item_input("Teststuff", "2"), None)
+
+    def test_check_item_input_req_is_str(self):
+        self.assertEqual(o.check_temp_item_input("Teststuff", "x"), "Required amount must be an integer")
+
+    def test_check_item_input_req_is_neg(self):
+        self.assertEqual(o.check_temp_item_input("Teststuff", "-2"), "Required amount cannot be negative")
+
+    def test_check_item_input_name_is_empty(self):
+        self.assertEqual(o.check_temp_item_input("", 1), "Item name must contain at least one character")
+
+    def test_check_item_input_item_already_in_db(self):
+        self.assertEqual(o.check_temp_item_input("Testitem", 1), "Testitem already listed for Testorage")
+
+    def test_check_item_input_item_already_in_temp(self):
+        o.add_temp_item(("Teststuff", 3, 1))
+        self.assertEqual(o.check_temp_item_input("Teststuff", 1), "Teststuff already to be added")
+
+    def test_check_storage_status(self):
+        self.assertEqual(o.check_storage_status("Testorage"), [(0, 1), "Expiry date not defined", ["red", "red", None]])

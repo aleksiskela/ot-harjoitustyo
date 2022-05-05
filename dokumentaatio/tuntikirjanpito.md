@@ -5,7 +5,7 @@
 | 22.3. | 2    | Määrittelydokumentti |
 | 29.3. | 2    | Arkkitehtuurin opiskelu |
 | 30.3. | 4    | Rakenteen suunnittelu ja tietokannan alustus |
-| 31.3. | 2    | Esimerkkirakenteeseen opiskelu ja ohjelman rakenteen uudelleensuunnittelu |
+| 31.3. | 2    | Esimerkkirakenteen opiskelu ja ohjelman rakenteen uudelleensuunnittelu |
 | 1.4.  | 5    | Ohjelmointi aloitettu oppimateriaalin ohjeiden mukaisesti. Ensimmäiset testit, coverage & invoke toteutus. Changelog luotu |
 | 4.4.  | 6    | Config moduuli ja dotenv lisätty. Ohjelmointia jatkettu etenkin tekstikäyttöliittymän toiminnallisuuden osalta |
 | 5.4.  | 3    | Testejä lisätty. Viikon 3 palautuksen viimeistely mm. virtuaaliympäristön toimivuuden tarkastaminen |
@@ -19,4 +19,5 @@
 | 28.4. | 3    | Lisätty StorageStatus-luokka. Värikoodien ohjelmointia. |
 | 2.5.  | 2    | Virhesyötteiden käsittelyä. |
 | 3.5.  | 6    | Testejä lisätty, docstring-dokumentointi aloitettu, arkkitehtuuridokumenttia päivitetty, käyttöohje luotu. |
-| yht.  | 64   | |
+| 5.5.  | 4    | Käyttöliittymän ja sovelluslogiikan siistimistä, testejä ja docstringiä lisätty. |
+| yht.  | 68   | |
