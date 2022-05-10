@@ -2,6 +2,7 @@ import unittest
 from ops.status_app import ItemStatus, StorageStatus
 from datetime import date, timedelta
 
+
 class TestItemStatus(unittest.TestCase):
     def setUp(self):
         today = str(date.today())
@@ -37,11 +38,10 @@ class TestItemStatus(unittest.TestCase):
         self.assertEqual(self.item1.total_status, "orange")
 
     def test_determine_total_status_green(self):
-        self.assertEqual(self.item5.total_status, "green")    
+        self.assertEqual(self.item5.total_status, "green")
 
     def test_determine_total_status_red(self):
         self.assertEqual(self.item2.total_status, "red")
-
 
 
 class TestStorageStatus(unittest.TestCase):
@@ -57,19 +57,21 @@ class TestStorageStatus(unittest.TestCase):
         self.item4 = ["Testpack", 3, 4, tomorrow, 1, "-"]
         self.item5 = ["Testobject", 2, 2, "-", 1, "-"]
 
-        self.items = [self.item1, self.item2, self.item3, self.item4, self.item5]
+        self.items = [self.item1, self.item2,
+                      self.item3, self.item4, self.item5]
 
     def test_saturated_amount_incs_when_item_not_monitored(self):
-        self.assertEqual(StorageStatus([self.item2]).totals, (1,1))
+        self.assertEqual(StorageStatus([self.item2]).totals, (1, 1))
 
     def test_saturated_amount_not_incs_when_item_monitored_and_unfull(self):
-        self.assertEqual(StorageStatus([self.item3]).totals, (0,1))
+        self.assertEqual(StorageStatus([self.item3]).totals, (0, 1))
 
     def test_saturated_amount_incs_when_item_monitored_and_full(self):
-        self.assertEqual(StorageStatus([self.item1]).totals, (1,1))
+        self.assertEqual(StorageStatus([self.item1]).totals, (1, 1))
 
     def test_days_until_expiry_finds_lowest_value(self):
-        self.assertEqual(StorageStatus(self.items).days_to_exp, "Expired 1 days ago")
+        self.assertEqual(StorageStatus(
+            self.items).days_to_exp, "Expired 1 days ago")
 
     def test_days_until_expiry_returns_correct_colors(self):
         self.assertEqual(StorageStatus([self.item1]).exp_color, "green")
@@ -82,5 +84,6 @@ class TestStorageStatus(unittest.TestCase):
 
     def test_determine_totals_color(self):
         self.assertEqual(StorageStatus(self.items).totals_color, "red")
-        self.assertEqual(StorageStatus([self.item1, self.item1, self.item1, self.item3]).totals_color, "orange")
+        self.assertEqual(StorageStatus(
+            [self.item1, self.item1, self.item1, self.item3]).totals_color, "orange")
         self.assertEqual(StorageStatus([self.item1]).totals_color, "green")

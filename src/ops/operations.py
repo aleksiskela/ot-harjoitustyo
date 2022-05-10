@@ -22,7 +22,7 @@ class Operations:
         """Palauttaa listan olemassa olevien varastojen nimistä
 
         Returns:
-            Lista varastojen nimistä
+            all_storages: Lista varastojen nimistä
         """
 
         raw = self._manager.view_storages()
@@ -40,11 +40,11 @@ class Operations:
             return "No storages created yet. Start by creating one."
         return "Available storages:"
 
-    def check_if_storage_already_exists(self, storage_name):
+    def check_if_storage_already_exists(self, storage_name: str):
         """Välittää kyselyn, jolla tarkastetaan, onko saman niminen varasto jo olemassa
 
         Args:
-            Varaston nimi
+            storage_name: Varaston nimi
 
         Return:
             Kyselyn mukainen totuusarvo
@@ -55,24 +55,25 @@ class Operations:
         return False
 
     def check_storage_name(self, storage_name: str):
-        """Tarkastaa että varaston nimi ei ole tyhjä merkkijono ja palauttaa True jos näin on
-        
+        """Tarkastaa että varaston nimi ei ole tyhjä merkkijono
+
         Args:
-            storage_name: varaston nimi
-            
+            storage_name: Varaston nimi
+
         Returns:
-            True jos syöte on tyhjä rivi
+            True jos syöte on tyhjä rivi, muuten False
         """
 
         if len(storage_name) == 0:
             return True
 
+        return False
 
     def check_if_item_already_in_storage(self, item_name):
         """Välittää kyselyn, jolla tarkastetaan, onko saman niminen tavara jo kyseisessä varastossa
 
         Args:
-            Tavaran nimi
+            item_name: Tavaran nimi
 
         Return:
             Kyselyn mukainen totuusarvo
@@ -84,17 +85,16 @@ class Operations:
 
     def create_new_storage(self, storage_name: str):
         """Välittää uuden varaston luomisen tietokantaan
+
         Args:
-            Varaston nimi
+            storage_name: Varaston nimi
         """
 
         self._manager.create_new_storage(storage_name)
 
     def delete_storage(self):
-        """Välittää varaston poiston tietokannasta
-        Args:
-            Varaston nimi
-        """
+        """Välittää varaston poiston tietokannasta"""
+
         self._manager.delete_storage(self._active_storage)
 
     def set_active_storage(self, storage):
@@ -102,7 +102,7 @@ class Operations:
         luokkamuuttujan _active_storage arvoksi luokan operaatioita varten
 
         Args:
-            Varaston nimi
+            storage: Varaston nimi
         """
 
         self._active_storage = storage
@@ -121,7 +121,7 @@ class Operations:
         luokkamuuttujan _active_item arvoksi luokan operaatioita varten
 
         Args:
-            Tavaran nimi
+            item_name: Tavaran nimi
         """
 
         self._active_item = item_name
@@ -130,10 +130,9 @@ class Operations:
         """Palauttaa _active_item- ja _active_storage luokkamuuttujien mukaisen tuotteen.
 
         Returns:
-            Käsiteltävän tavaran nimi, määrä, minimimäärä,
+            Tuple jonka alkiot ovat: käsiteltävän tavaran nimi, määrä, minimimäärä,
             vanhenemispäivä, tarkasteltava-valinta, lisätieto
         """
-
         return self._manager.pick_item(self._active_item, self._active_storage)[0]
 
     def get_all_items(self):
@@ -148,15 +147,15 @@ class Operations:
     def check_temp_item_input(self, item_name, min_req):
         """Tarkastaa lisättävän tavaran syötteen oikeellisuuden
         ja virhesyötteen tapauksessa palauttaa virheviestin.
-        
+
         Args:
             item_name: Lisättävän tavaran nimi
             min_req: vaadittava minimimäärä
-            
+
         Return:
             Merkkijono joka ilmaisee virhellisen syötteen, muuten None
         """
-        
+
         try:
             min_req = int(min_req)
         except ValueError:
@@ -165,21 +164,24 @@ class Operations:
         if min_req < 0:
             return "Required amount cannot be negative"
 
-        elif len(item_name) == 0:
+        if len(item_name) == 0:
             return "Item name must contain at least one character"
 
-        elif self.check_if_item_already_in_storage(item_name):
+        if self.check_if_item_already_in_storage(item_name):
             return f"{item_name} already listed for {self.get_active_storage()}"
 
-        elif item_name in [temp_item[0] for temp_item in self._temp_items if temp_item[0] == item_name]:
+        if item_name in [
+                temp_item[0] for temp_item in self._temp_items if temp_item[0] == item_name]:
             return f"{item_name} already to be added"
-        
+
+        return None
 
     def add_temp_item(self, item: tuple):
         """Lisää tavaran _temp_items-luokkamuuttujaan.
         Muuttujaa käytetään väliaikaisena tallennuspaikkana varastoon lisättäville tavaroille.
+
         Args:
-            Tuple joka sisältää tuotteen nimen, minimimäärän ja tarkasteltava-valinnan
+            item: Tuple jonka alkioina tuotteen nimi, minimimäärä ja tarkasteltava-valinta
         """
 
         self._temp_items.append(item)
@@ -191,17 +193,21 @@ class Operations:
 
     def get_temp_items(self):
         """Palauttaa _temp_items-luokkamuuttujan tiedot
+
         Returns:
             Lista väliaikaisesti tallennetuista tavaroista"""
 
         return self._temp_items
 
     def add_new_required_item(self, item_name, min_amount, monitored):
-        """Välittää tietokantaoperaation, jolla lisätään valittu tuote tietokantaan
+        """Välittää tietokantaoperaation, jolla lisätään valittu tuote tietokantaan.
+        Käyttöliittymä käsittelee luokan _temp_items-listaa, 
+        jonka arvoja käytetään metodin parametreinä
+
         Args:
-            Tuotteen nimi, minimimäärä ja tarkasteltava-valinta.
-            Käyttöliittymä käsittelee luokan _temp_items-listaa,
-            jonka arvot välitetään metodin parametreinä.
+            item_name: Tuotteen nimi 
+            min_amount: Minimimäärä
+            monitored: Tarkasteltava-valinta
         """
 
         self._manager.insert_required_item_to_storage(
@@ -211,7 +217,7 @@ class Operations:
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran määrästä
 
         Args:
-            Uusi määrä
+            new_amount: Uusi määrä
         """
 
         self._manager.update_amount(
@@ -221,7 +227,7 @@ class Operations:
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran mimimimäärästä
 
         Args:
-            Uusi minimimäärä
+            new_minimum_amount: Uusi minimimäärä
         """
 
         self._manager.update_minimum_amount(
@@ -231,7 +237,7 @@ class Operations:
         """Välittää tietokantaoperaation jolla muutetaan tieto tavaran vanhenemispäivästä
 
         Args:
-            Uusi vanhenemispäivämäärä
+            expiry_date: Uusi vanhenemispäivämäärä
         """
 
         self._manager.set_expiry_date(
@@ -241,7 +247,7 @@ class Operations:
         """Välittää tietokantaoperaation jolla muutetaan tarkasteltava-valinta
 
         Args:
-            Tarkestaltava-valinta (1 tai 0)
+            status: Tarkastaltava-valinta (1 tai 0)
         """
 
         self._manager.set_monitored_status(
@@ -251,7 +257,7 @@ class Operations:
         """Välittää tietokantaoperaation jolla muutetaan tavaran lisätietokentän arvo
 
         Args:
-            Uusi lisätieto
+            misc: Uusi lisätieto
         """
 
         self._manager.set_misc(self._active_storage, self._active_item, misc)
@@ -260,7 +266,7 @@ class Operations:
         """Palauttaa merkkijonon joka näytetään käyttöliittymässä
 
         Args:
-            1 tai 0 riippuen riippuen tavaran tarkasteltava-valinnasta
+            value: 1 tai 0 riippuen riippuen tavaran tarkasteltava-valinnasta
 
         Returns:
             Merkkijono joka ilmaisee onko tuote tarkatelun alainen.
@@ -275,7 +281,7 @@ class Operations:
         tuotteen täyttöaste ja ilmaista tieto värikoodein
 
         Args:
-            Tuotteen nimi
+            item: Tuotteen nimi
         Returns:
             Tuple joka sisältää värikoodin jota käyttöliittymä käyttää tiedon ilmaisemiseen
         """
@@ -300,7 +306,7 @@ class Operations:
         värikoodin jolla tieto ilmaistaan käyttöliittymässä.
 
         Args:
-            Varaston nimi
+            storage_name: Varaston nimi
 
         Returns:
             Lista joka sisältää tiedot joita käyttöliittymän

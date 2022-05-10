@@ -7,14 +7,27 @@ from ops.operations import operations
 
 
 class GUI:
+    """Käyttöliittymästä vastaava luokka"""
+
     def __init__(self, root):
+        """Luokan konstruktori luo käyttöliittymäolion
+
+        Attributes:
+            root: index.py tiedostossa luotu TkInter-juuri"""
+
         self._root = root
         self._active_view = None
 
     def start(self):
+        """Käynnistää käyttöliittymän siirtymällä pääsivulle"""
+
         self._show_main_view()
 
     def destroy(self):
+        """Kutsuu viimeisimmän näkymän metodia joka 
+        tyhjentää näytön ja _active_view-muuttujan
+        """
+
         if self._active_view:
             self._active_view.destroy()
         self._active_view = None

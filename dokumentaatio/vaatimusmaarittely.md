@@ -4,40 +4,62 @@
 
 Sovelluksella voidaan luoda varastokirjanpito varaston minimivarustelu ja vanhenemispäiväys huomioiden. Varastolle määritellään minimivarustelu, jonka ajantasaisuutta on helppo valvoa graafisen käyttöliittymän avulla. Sovellusta voidaan käyttää esimerkiksi 72 tunnin hätävaran ylläpitoon.
 
-## Käyttäjät
+## Käyttäjä ja varastot
 
-Sovelluksella on lähtökohtaisesti vain yksi käyttäjäprofiili
+Sovelluksella on yksi käyttäjäprofiili joka voi luoda useita varastoja.
+
+## Käyttöliittymä
+
+Sovelluksen käyttöliittymä koostuu viidestä eri näkymästä. Sovellus käynnistyy päänäkymään, joka koostuu luotujen varastojen yleiskatsauksesta. Päänäkymästä käyttäjä voi siirtyä luomaan uusia varastoja tai muokkaamaan valittua varastoa. 
+
+Varaston avattuaan käyttäjä näkee listan varaston tavaroista. Varastonäkymästä voidaan siirtyä varaston muokkausnäkymään tai tavaran muokkausnäkymään. Alasivut tarjoavat toiminnot varaston minimivarustelun määrittelyyn tai varaston poistamiseen, sekä tietyn tavaran tietojen, kuten määrän ja vanhenemispäivän, muokkaamiseen tai tavaran poistamiseen.
 
 ## Perusversion tarjoama toiminnallisuus
 
-### Statustila
-- [x] Käyttäjä näkee luodut varastot
-- [x] Käyttäjä näkee varastojen statuksen
-  - [x] Varaston nimen vieressä varaston täyttöaste formaatissa ##/##
-  - [x] Rivi korostettuna vihreällä, jos kaikki kunnossa
-  - [x] Rivi korostettuna keltaisella, jos jokin tuote vanhenemassa pian tai kun täyttöaste 75-99 % 
-  - [x] Rivi korostettuna punaisella, jos jokin tuote vanhentunut tai kun täyttöaste alle 75 %
-- [x] Käyttäjä voi luoda uuden varaston
-- [x] Käyttäjä voi avata varaston tarkastelua tai muokkausta varten
+### Päänäkymä
+- Käyttäjä näkee luodut varastot
+- Käyttäjä näkee varastojen statuksen
+  - Varaston täyttöaste formaatissa ##/##
+  - Jäljellä olevat päivät varaston ensimmäiseksi vanhenevan tuotteen vanhenemispäivään
+  - Rivin merkinnät korostettuna vihreällä, jos kaikki kunnossa
+  - Rivin merkinnät korostettuna keltaisella, jos jokin tavara vanhenemassa pian tai kun varaston täyttöaste 75-99 % 
+  - Rivin merkinnät korostettuna punaisella, jos jokin tavara vanhentunut tai kun varaston täyttöaste alle 75 %
+- Käyttäjä voi luoda uuden varaston
+- Käyttäjä voi avata varaston tarkastelua tai muokkausta varten
 
 ### Uuden varaston luominen
-- [x] Käyttäjä voi antaa varastolle seuraavia tietoja:
-  - [x] Varaston nimi
-  - [x] Tuotteet:
-    - [x] Nimi
-    - [x] Minimilukumäärä
-- [x] Tuotteen parametrit: nimi, lukumäärä, minimilukumäärä, vanhenemispäivä ja lisätietokenttä.
+- Käyttäjä voi syöttää uuden varaston nimen
+- Käyttäjä voi poistua luontinäkymästä tallentamalla uuden varaston tai perumalla luonnin
 
-### Varaston tarkastelu ja muokkaus
-- [x] Käyttäjä voi lisätä ja vähentää tuotteen lukumäärää
-- [x] Käyttäjä voi lisätä tai muokata tuotteen vanhenemispäivää
-- [x] Käyttäjä voi muokata lisätietokentän tekstiä
+### Varastonäkymä
+- Käyttäjä näkee varaston tavarat värikoodattuna listana josta ilmenee:
+  - Tavaran nimi, täyttöaste formaatissa ##/##, vanhenemispäivämäärä ja vapaa lisätietokenttä
+  - Rivin merkinnät korostettuna samalla periaatteella kuin päänäkymässä
+- Käyttäjä voi siirtyä muokkaamaan tavaraa, muokkaamaan varaston minimivarustelua tai palata päänäkymään
+
+### Varaston minimivarustelun määrittely
+- Käyttäjä voi määritellä varaston vaadittavat tavarat
+- Tavaralle annettavat tiedot:
+  - Nimi
+  - Minimilukumäärä
+  - Valintaruutu, jolla käyttäjä määrittelee kuuluuko tavara minimivarusteluun. Valinta vaikuttaa tavaran värikoodaukseen
+- Käyttäjä näkee lisättäväksi määrittelemänsä tavarat listana
+- Käyttäjä voi siirtyä varastonäkymään tallentamalla lisättävien listan tai perumalla lisäyksen
+
+### Minimivarusteluun kuuluvan tavaran muokkaaminen
+- Käyttäjä näkee tavaran tiedot
+- Käyttäjä voi lisätä tai vähentää määrää tai minimimäärää
+- Käyttäjä voi valita kalenterista tavaralle vanhenemispäivän
+- Käyttäjä voi määritellä tavaran kuulumisen minimivarusteluun
+- Käyttäjä voi lisätä tavaralle vapaamuotoisen lisätiedon
+- Käyttäjä voi siirtyä takaisin varastonäkymään tallentamalla tai perumalla muutokset
+
+### Varaston tai tavaran poistaminen
+- Varasto poistetaan varaston muokkausnäkymästä
+- Tavara poistetaan tavaran muokkausnäkymästä
 
 ## Jatkokehitysideoita
 
-- [ ] Tuotteen vanhenemispäivän sijaan voidaan antaa päivien lukumäärä, jonka jälkeen tuote vanhenee
-- [ ] Lisättäessä tuotetta tallennetaan lisäysaika, jolloin keltainen korostus voidaan suhteuttaa tuotteen säilyvyysaikaan
-- [x] Tuote voidaan merkitä kuuluvaksi minimivarusteluun tai olemaan sen ulkopuolella
-  - [x] Minimivarustelun ulkopuolella olevaa tuotetta ei huomioida statuksessa esim. värikoodeissa
-  - [x] Tuotteen kuuluvuus minimivarusteluun voidaan valita varaston luonnin tai muokkauksen yhteydessä
-- [ ] Tuotteen jokaisen kappaleen vanhenemispäivä voidaan määritellä erikseen. Yleisnäkymässä voi näkyä esimerkiksi ensimmäinen vanhenemispäivä, ja tuote valittuna näyttää kaikki vanhenemispäivät
+- Vanhenemispäivän sijaan voidaan antaa päivien lukumäärä, jonka jälkeen tavara vanhenee
+- Lisättäessä tavaraa tallennetaan lisäysaika, jolloin keltainen korostus voidaan suhteuttaa säilyvyysaikaan
+- Yksittäisen tavaran jokaisen kappaleen vanhenemispäivä voidaan määritellä erikseen. Yleisnäkymässä voi näkyä esimerkiksi ensimmäinen vanhenemispäivä, ja tuote valittuna näyttää kaikki vanhenemispäivät

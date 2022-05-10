@@ -20,4 +20,5 @@
 | 2.5.  | 2    | Virhesyötteiden käsittelyä. |
 | 3.5.  | 6    | Testejä lisätty, docstring-dokumentointi aloitettu, arkkitehtuuridokumenttia päivitetty, käyttöohje luotu. |
 | 5.5.  | 4    | Käyttöliittymän ja sovelluslogiikan siistimistä, testejä ja docstringiä lisätty. |
-| yht.  | 68   | |
+| 10.5. | 6    | Docstring, EditItemView siistiminen, dokumentaation päivitys, arvosteluperusteisiin mukauttaminen, cli liittyvä koodi poistettu |
+| yht.  | 74   | |

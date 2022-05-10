@@ -45,4 +45,7 @@
 ## Viikko 7
 
 - status_app_test.py-tiedosto lisätty. Testikattavuus nostettu yli 90 prosentin.
-- 
+- EditItemView jaettu erillisiin metodeihin
+- Docstring-dokumentaatiota lisätty
+- Dokumentaatiota päivitetty
+- Komentorivikäyttöliittymään liittyvä koodi poistettu

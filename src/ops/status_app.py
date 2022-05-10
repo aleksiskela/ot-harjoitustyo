@@ -5,15 +5,22 @@ class ItemStatus:
     """Tavaran täyttöasteen tarkastelusta vastaava luokka.
     Luokan metodit määrittelevät luokan muuttujien arvot,
     jotka Operations-luokka välittää käyttöliittymälle
+
+    Attributes:
+        amount: Määrä
+        min_amount: Minimimäärä
+        expdate: Vanhenemispäivämäärä.
     """
 
     def __init__(self, amount, min_amount, expdate):
         """Luokan konstruktorissa tarkasteltavat muuttujat
-        saavat arvonsa parametreista ja alustaa palautettavat muuttujat.
+        saavat arvonsa parametreista ja palautettavat muuttujat alustetaan.
         Konstruktori myös käynnistää tarkastelumetodit.
 
         Args:
-            Määrä, minimimäärä ja vanhenemispäivämäärä.
+            amount: Määrä
+            min_amount: Minimimäärä
+            expdate: Vanhenemispäivämäärä.
         """
 
         self._amount = amount

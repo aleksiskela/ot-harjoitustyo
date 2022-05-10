@@ -3,7 +3,21 @@ from ops.operations import operations
 
 
 class MainView:
+    """Päänäkymästä vastaava luokka"""
+
     def __init__(self, root, handle_select_storage, handle_create_storage):
+        """Luokan konstruktori luo päänäkymän joka koostuu luotujen varastojen listasta.
+        Jos varastoja ei ole luotu, näytetään ohjeteksti joka ohjaa varaston luontiin.
+
+        Attributes:
+            root: TkInter-juuri
+            handle_select_storage: 
+                Välittää kutsun käyttöliittymälle, jolla siirrytään
+                tietyn varaston näkymään. Saa argumentikseen varaston nimen
+            handle_create_storage:
+                Välittää kutsun, jolla siirrytään uuden varaston luomisnäkymään
+        """
+
         self._root = root
         self._frame = None
         self._handle_select_storage = handle_select_storage
@@ -12,12 +26,18 @@ class MainView:
         self._initialize()
 
     def pack(self):
+        """Piirtää näkymän"""
+
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tyhjentää näkymän"""
+
         self._frame.destroy()
 
     def _initialize(self):
+        """Alustaa näkymän ja kutsuu tarvittavia metodeja"""
+
         self._frame = ttk.Frame(master=self._root)
         intro_label = ttk.Label(
             master=self._frame, text="Welcome to the Storage manager!")
@@ -31,6 +51,12 @@ class MainView:
         self._footer()
 
     def _list_storages(self, storage):
+        """Listaa argumenttina olevan varaston. Varasto alustetaan omaan frameensa.
+
+        Args:
+            storage: listattavan varaston nimi
+        """
+
         storage_frame = ttk.Frame(master=self._frame)
 
         status = operations.check_storage_status(storage)
@@ -56,6 +82,8 @@ class MainView:
         storage_frame.grid()
 
     def _footer(self):
+        """Luo näkymän loppuun valintapainikkeen"""
+
         button = ttk.Button(
             master=self._frame, text="Create new storage", command=self._handle_create_storage)
         button.grid()

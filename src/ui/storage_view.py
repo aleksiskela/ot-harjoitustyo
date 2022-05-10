@@ -3,7 +3,21 @@ from ops.operations import operations
 
 
 class StorageView:
+    """Varastonäkymästä vastaava näkymä"""
+
     def __init__(self, root, storage_name, handle_return, handle_edit_storage, handle_edit_item):
+        """Luokan konstruktori luo varastonäkymän.
+
+        Attributes:
+            root: TkInter-juuri
+            storage_name: Tarkasteltavan varaston nimi
+            handle_return: Välittää kutsun siirtyä päänäkymään
+            handle_edit_storage: Välittää kutsun siirtyä varaston muokkausnäkymään
+            handle_edit_item: 
+                Välittää kutsun siirtyä tavaran muokkausnäkymään. 
+                Saa argumentikseen tavaran nimen
+            """
+
         self._root = root
         self._frame = None
         operations.set_active_storage(storage_name)
@@ -14,12 +28,17 @@ class StorageView:
         self._initialize()
 
     def pack(self):
+        """Piirtää näkymän"""
+
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        """Tyhjentää näkymän"""
+
         self._frame.destroy()
 
     def _initialize(self):
+        """Alustaa näkymän ja kutsuu tarvittavia metodeja"""
         self._frame = ttk.Frame(master=self._root)
         label = ttk.Label(master=self._frame,
                           text=f"{operations.get_active_storage()} opened")
@@ -31,10 +50,13 @@ class StorageView:
         self._footer()
 
     def _first_row(self):
+        """Tulostaa tekstin jonka sisältö riippuu siitä, onko varaston
+        minimivarusteluun listattu tavaroita"""
+
         if len(self.items) == 0:
-            label = ttk.Label(master=self._frame, text=
-            "Storage is empty.")
-            label_2 = ttk.Label(master=self._frame, text="Select 'Edit storage' to add required items.")
+            label = ttk.Label(master=self._frame, text="Storage is empty.")
+            label_2 = ttk.Label(
+                master=self._frame, text="Select 'Edit storage' to add required items.")
             label.grid()
             label_2.grid(pady=5)
         else:
@@ -57,9 +79,14 @@ class StorageView:
             self._frame.grid_columnconfigure(4, minsize=200)
             self._frame.grid_columnconfigure(5, minsize=100)
 
-
-
     def _list_items(self, item):
+        """Luo kullekin varaton tavaralle oman framen,
+        joka näyttää tavaran tiedot
+
+        Args:
+            Tavaran nimi
+        """
+
         item_frame = ttk.Frame(master=self._frame)
 
         colors = operations.check_item_status(item[0])
@@ -99,6 +126,8 @@ class StorageView:
         item_frame.grid(columnspan=6)
 
     def _footer(self):
+        """Luo näkymän loppuun valintapainikkeet"""
+
         foot_frame = ttk.Frame(master=self._frame)
         edit_button = ttk.Button(
             master=foot_frame, text="Edit storage", command=self.handle_edit_storage)
