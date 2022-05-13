@@ -2,22 +2,35 @@
 
 ## Rakenne
 
-Ohjelman rakenne on kolmitasoinen: käyttöliittymä, logiikasta vastaava Operations-luokka ja tietokantojen käsittelystä vastaava StorageManager-luokka. Lisäksi Operations-luokka käyttää status_app.py-tiedoston luokkia varastojen tilan tarkkailussa.
+Ohjelman pakkausrakenne on kolmitasoinen: 
+
+- *ui* (käyttöliittymä)
+- *ops* (sovelluslogiikka)
+- *repositories* (tietokantojen käsittely)
+
+## Käyttöliittymä
+
+Ohjelmalla on graafinen käyttöliittymä, joka koostuu viidestä eri näkymästä:
+
+- Päänäkymä
+- Varaston luontinäkymä
+- Varastonäkymä
+- Varaston muokkausnäkymä
+- Tavaran muokkausnäkymä
+
+Kukin näkymä on omassa luokassaan *ui*-pakkauksessa. GUI-luokka vastaa näkymien hallinnasta.
 
 ## Sovelluslogiikka
 
-Ohjelma käsittelee SQLite tietokantaa, johon tallennetaan tieto olemassa olevista varastoista ja niiden täyttötilanteista. StorageManager-luokka käsittelee tietokantaoperaatioita. Operations-luokan metodien avulla dataa voidaan käsitellä ja välittää tieto käyttöliittymälle. Operations-luokka käyttää ItemStatus-luokkaa tarkastaakseen varaston tavaroiden täyttöasteen ja ajantasaisuuden ja StorageStatus-luokkaa varaston tilanteen tarkasteluun. 
+Ohjelma käsittelee SQLite tietokantaa, johon tallennetaan tietoa varastoista ja niiden täyttötilanteista. Sovelluslogiikan ydin on Operations-luokka, joka yhdistää käyttöliittymän ja tietokantaoperaatiot toisiinsa. Käyttöliittymä kutsuu Operations-luokan metodeja joka puolestaan välittää tarvittavat kutsut edelleen StorageManager-luokalle. StorageManagerin tehtävä on suorittaa tietokantaoperaatiot. Varastonhallinnan helpottamiseksi Operations-luokka käyttää ItemStatus-luokkaa tarkastellakseen varaston tietyn tavaran täyttöasteen ja ajantasaisuuden ja StorageStatus-luokkaa koko varaston tilanteen tarkasteluun. Käyttöliittymään tieto välitetään värikoodein.
 
-```mermaid
- classDiagram
-     Operations --> StorageManager
-     Operations --> ItemStatus
-     Operations --> StorageStatus
-```
+Sovelluksen luokka/pakkauskaavio:
+
+![pakkauskaavio](./kuvat/pakkauskaavio.png)
   
 ## Tietojen pysyväistallennus
 
-Repositories-pakkauksen StorageManager käsittelee SQLite-tietokantaa. Tietokannassa on kaksi taulua: Storages ja Items. Storages-tauluun tallennetaan olemassa olevien varastojen nimet ja kokonaistäyttöaste. Items-taulu referoidaan Storages-tauluun ja siihen tallennetaan varastoitavat tavarat ja yksittäisten tavaroiden täyttöasteet. 
+*repositories* -pakkauksessa sijaitseva StorageManager-luokka käsittelee SQLite-tietokantaa. Tietokannassa on kaksi taulua: Storages ja Items. Storages-tauluun tallennetaan olemassa olevien varastojen nimet ja kokonaistäyttöaste. Items-taulu referoidaan Storages-tauluun ja siihen tallennetaan varastoitavat tavarat ja niiden täyttöaste, vanhenemispäivä ja vapaa lisätietomerkkijono.
 
 ![dbdiagram](./kuvat/dbdiagram.png)
 
