@@ -12,7 +12,7 @@ Testejä varten on .env.test-tiedostoon määritelty erillinen tietokantatiedost
 
 ### Testauskattavuus
 
-Ohjelman testikattavuus on 99 %
+Ohjelman testien haaraumakattavuus on 99 %
 
 ![testikattavuus](./kuvat/testikattavuus.png)
 
@@ -20,7 +20,7 @@ Ohjelman testikattavuus on 99 %
 
 ### Asennus
 
-Sovelluksen asennus on testattu käyttöohjeen mukaisesti Linux- ja macOS ympäristöissä.
+Sovelluksen asennus on testattu käyttöohjeen mukaisesti Linux- ja macOS ympäristöissä. Konfiguraatio-tiedoston muokkausta on myös testattu.
 
 ### Toiminnallisuudet
 

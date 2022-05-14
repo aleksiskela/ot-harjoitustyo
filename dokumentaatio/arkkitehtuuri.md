@@ -8,6 +8,8 @@ Ohjelman pakkausrakenne on kolmitasoinen:
 - *ops* (sovelluslogiikka)
 - *repositories* (tietokantojen käsittely)
 
+Luokka/pakkauskaavio alempana.
+
 ## Käyttöliittymä
 
 Ohjelmalla on graafinen käyttöliittymä, joka koostuu viidestä eri näkymästä:
@@ -30,11 +32,13 @@ Sovelluksen luokka/pakkauskaavio:
   
 ## Tietojen pysyväistallennus
 
-*repositories* -pakkauksessa sijaitseva StorageManager-luokka käsittelee SQLite-tietokantaa. Tietokannassa on kaksi taulua: Storages ja Items. Storages-tauluun tallennetaan olemassa olevien varastojen nimet ja kokonaistäyttöaste. Items-taulu referoidaan Storages-tauluun ja siihen tallennetaan varastoitavat tavarat ja niiden täyttöaste, vanhenemispäivä ja vapaa lisätietomerkkijono.
+*repositories*-pakkauksessa sijaitseva StorageManager-luokka käsittelee SQLite-tietokantaa. Tietokannassa on kaksi taulua: Storages ja Items. Storages-tauluun tallennetaan olemassa olevien varastojen nimi. Items-taulu referoi Storages-tauluun ja siihen tallennetaan varastoitavat tavarat ja niiden täyttöaste, vanhenemispäivä, tarkastelustatus ja vapaa lisätietomerkkijono.
 
 ![dbdiagram](./kuvat/dbdiagram.png)
 
-Taulut alustetaan init_db.py-tiedostossa.
+Tietokanta tallennetaan juuressa sijaitsevaan data-hakemistoon. Tietokanta-tiedoston oletusnimi on "data.db", mutta käyttäjä voi halutessaan muokata tiedoston nimeä juuressa sijaitsevan .env-tiedoston avulla.
+
+Taulut alustetaan init_db.py-tiedostossa. 
 
 ## Päätoiminnallisuudet
 

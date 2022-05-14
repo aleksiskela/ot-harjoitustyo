@@ -22,4 +22,5 @@
 | 5.5.  | 4    | Käyttöliittymän ja sovelluslogiikan siistimistä, testejä ja docstringiä lisätty. |
 | 10.5. | 6    | Docstring, EditItemView siistiminen, dokumentaation päivitys, arvosteluperusteisiin mukauttaminen, cli liittyvä koodi poistettu |
 | 13.5. | 2    | Dokumentaation viimeistelyä |
-| yht.  | 76   | |
+| 14.5. | 1    | Loppupalautus |
+| yht.  | 77   | |

@@ -1,5 +1,21 @@
 # Käyttöohje
 
+## Sovelluksen lataus
+
+Lataa sovelluksen uusin release ja pura zip-tiedosto
+
+## Konfigurointi
+
+Ohjelman käyttämä tietokanta tallennetaan juuressa sijaitsevaan data-kansioon. Tietokanta-tiedoston oletusnimi on data.db. Tiedoston nimeä voi muokata juurihakemistossa sijaitsevassa .env-tiedostossa muokkaamalla muuttujan DATABASE_FILENAME arvoa. 
+
+## Ohjelman käynnistäminen
+
+Asenna vaadittavat riippuvuudet komennolla *poetry install*
+
+Alusta tietokanta komennolla poetry *run invoke initiate*
+
+Käynnistä sovellus komennolla *poetry run invoke start*
+
 ## Päänäkymä
 
 Sovellus käynnistyy päänäkymään:
@@ -22,7 +38,7 @@ Päänäkymästä voidaan siirtyä varastonäkymään:
 
 ![](./kuvat/storage_view.png)
 
-Varastonäkymästä käyttäjä näkee valitun varaston sisällön. Tavaran nimen vieressä näkyy määrä, vaadittava minimimäärä, vanhenemispäivämäärä, tarkastelustatus, lisätietokenttä sekä muokkauspainike. Värikoodaus mukailee päänäkymän logiikkaa. 
+Varastonäkymästä käyttäjä näkee valitun varaston sisällön. Tavaran nimen vieressä näkyy määrä, vaadittava minimimäärä, vanhenemispäivämäärä, tarkastelustatus, lisätietokenttä sekä muokkauspainike. Värikoodaus mukailee päänäkymän logiikkaa. Jos tarkastelustatus (ohjelmassa "monitored") on valittu pois päältä, ei tavara ole tarkastelun alla, eikä näin ollen vaikuta värien muodostukseen.
 
 Varastonäkymästä voidaan siirtyä varaston minimivarustelun muokkausta tai varaston poistamista varten painikkeella "Edit storage" tai muokkaamaan tiettyä tavaraa valitsemalla tavaraalistalta painike "Edit item". 
 
@@ -32,4 +48,4 @@ Tavaran parametrejä voidaan muokata tavaranäkymässä:
 
 ![](./kuvat/edit_item_view.png)
 
-Tavaran voimassa olevat tiedot näkyvät ylärivillä, sekä oikeassa reunassa olevassa Monitored-valinnassa. Käyttäjä voi muokata tavaran lukumäärää, minimimäärää, vanhenemispäivää ja lisätietokenttää. Päivämäärän muuttamisen jälkeen tulee tieto päivittää yläriville "Confirm date" tai "Clear date" painikkeella ja lisätietokentän muutos "Update additional info" painikkeella. Valitsemalla oikeasta reunasta Monitored-laatikko aktiiviseksi, saadaan tuote värikooditarkastelun alaiseksi.
+Tavaran voimassa olevat tiedot näkyvät ylärivillä, sekä oikeassa reunassa olevassa Monitored-valinnassa. Käyttäjä voi muokata tavaran lukumäärää, minimimäärää, vanhenemispäivää ja lisätietokenttää. Päivämäärän muuttamisen jälkeen tulee tieto päivittää yläriville "Confirm date" tai "Clear date" painikkeella ja lisätietokentän muutos "Update additional info" painikkeella. Valitsemalla oikeasta reunasta Monitored-laatikko aktiiviseksi, saadaan tuote värikooditarkastelun alaiseksi. Muussa tapauksessa tavaran täyttöastetta ja vanhenemispäivää ei tarkastella. 
