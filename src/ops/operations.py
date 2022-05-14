@@ -201,11 +201,11 @@ class Operations:
 
     def add_new_required_item(self, item_name, min_amount, monitored):
         """Välittää tietokantaoperaation, jolla lisätään valittu tuote tietokantaan.
-        Käyttöliittymä käsittelee luokan _temp_items-listaa, 
+        Käyttöliittymä käsittelee luokan _temp_items-listaa,
         jonka arvoja käytetään metodin parametreinä
 
         Args:
-            item_name: Tuotteen nimi 
+            item_name: Tuotteen nimi
             min_amount: Minimimäärä
             monitored: Tarkasteltava-valinta
         """
