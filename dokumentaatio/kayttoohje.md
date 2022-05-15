@@ -6,9 +6,11 @@ Lataa sovelluksen uusin [release](https://github.com/aleksiskela/ot-harjoitustyo
 
 ## Ohjelman käynnistäminen
 
+Siirry ohjelman hakemistoon. Seuraavat komennot tulee suorittaa juurihakemistosta käsin.
+
 Asenna vaadittavat riippuvuudet komennolla *poetry install*
 
-Alusta tallennustiedosto komennolla poetry *run invoke initiate*
+Alusta tallennustiedosto komennolla *poetry run invoke initiate*
 
 Käynnistä sovellus komennolla *poetry run invoke start*
 
