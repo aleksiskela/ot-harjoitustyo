@@ -33,7 +33,7 @@ Varaston avattuaan käyttäjä näkee listan varaston tavaroista. Varastonäkym�
 
 ### Varastonäkymä
 - Käyttäjä näkee varaston tavarat värikoodattuna listana josta ilmenee:
-  - Tavaran nimi, täyttöaste formaatissa ##/##, vanhenemispäivämäärä ja vapaa lisätietokenttä
+  - Tavaran nimi, täyttöaste formaatissa ##/##, vanhenemispäivämäärä, monitorointi-status ja vapaa lisätietokenttä
   - Rivin merkinnät korostettuna samalla periaatteella kuin päänäkymässä
 - Käyttäjä voi siirtyä muokkaamaan tavaraa, muokkaamaan varaston minimivarustelua tai palata päänäkymään
 
@@ -50,7 +50,7 @@ Varaston avattuaan käyttäjä näkee listan varaston tavaroista. Varastonäkym�
 - Käyttäjä näkee tavaran tiedot
 - Käyttäjä voi lisätä tai vähentää määrää tai minimimäärää
 - Käyttäjä voi valita kalenterista tavaralle vanhenemispäivän
-- Käyttäjä voi määritellä tavaran kuulumisen minimivarusteluun
+- Käyttäjä voi määritellä tavaran kuulumisen minimivarusteluun ("Monitored")
 - Käyttäjä voi lisätä tavaralle vapaamuotoisen lisätiedon
 - Käyttäjä voi siirtyä takaisin varastonäkymään tallentamalla tai perumalla muutokset
 
