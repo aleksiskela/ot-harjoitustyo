@@ -140,24 +140,25 @@ class StorageStatus:
 
         deltae = []
         for item in self._all_items:
-            if item[3] != "-":
-                temp = item[3].split("-")
-                expdate = date(int(temp[0]), int(temp[1]), int(temp[2]))
-                delta = expdate - date.today()
-                deltae.append(delta.days)
-        if len(deltae) == 0:
-            self.days_to_exp = "Expiry date not defined"
-            self.exp_color = None
-        else:
-            lowest_delta = min(deltae)
-            if lowest_delta >= 0:
-                self.days_to_exp = f"Expires in {lowest_delta} days"
-                self.exp_color = "green"
-                if lowest_delta < 3:
-                    self.exp_color = "orange"
+            if item[4] == 1:
+                if item[3] != "-":
+                    temp = item[3].split("-")
+                    expdate = date(int(temp[0]), int(temp[1]), int(temp[2]))
+                    delta = expdate - date.today()
+                    deltae.append(delta.days)
+            if len(deltae) == 0:
+                self.days_to_exp = "Expiry date not defined"
+                self.exp_color = None
             else:
-                self.days_to_exp = f"Expired {abs(lowest_delta)} days ago"
-                self.exp_color = "red"
+                lowest_delta = min(deltae)
+                if lowest_delta >= 0:
+                    self.days_to_exp = f"Expires in {lowest_delta} days"
+                    self.exp_color = "green"
+                    if lowest_delta < 3:
+                        self.exp_color = "orange"
+                else:
+                    self.days_to_exp = f"Expired {abs(lowest_delta)} days ago"
+                    self.exp_color = "red"
 
     def _determine_colors(self):
         """Metodi määrittelee värikoodit varaston täyttöasteelle
