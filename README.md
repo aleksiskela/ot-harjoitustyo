@@ -4,7 +4,7 @@ Storage Manager-sovelluksella voidaan luoda varastokirjanpito. Varastolle määr
 
 ## Release
 
-[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/loppupalautus) 
+[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/Loppupalautus) 
 
 ## Dokumentaatio
 
