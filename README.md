@@ -1,10 +1,10 @@
-# Varasto-sovellus
+# Storage Manager
 
-Varasto-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellään minimivarustelu ja tavaroita lisättäessä niille voidaan määritellä vanhenemispäivämäärä. Sovelluksen graafisen käyttöliittymän avulla käyttäjä voi muokata ja seurata varaston tilaa.
+Storage Manager-sovelluksella voidaan luoda varastokirjanpito. Varastolle määritellään minimivarustelu ja tavaroita lisättäessä niille voidaan määritellä vanhenemispäivämäärä. Sovelluksen graafisen käyttöliittymän avulla käyttäjä voi muokata ja seurata varaston tilaa.
 
 ## Release
 
-[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/viikko6) 
+[Uusin release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/loppupalautus) 
 
 ## Dokumentaatio
 
