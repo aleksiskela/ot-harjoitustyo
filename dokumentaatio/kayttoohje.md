@@ -4,17 +4,19 @@
 
 Lataa sovelluksen uusin release ja pura zip-tiedosto
 
-## Konfigurointi
-
-Ohjelman käyttämä tietokanta tallennetaan juuressa sijaitsevaan data-kansioon. Tietokanta-tiedoston oletusnimi on data.db. Tiedoston nimeä voi muokata juurihakemistossa sijaitsevassa .env-tiedostossa muokkaamalla muuttujan DATABASE_FILENAME arvoa. 
-
 ## Ohjelman käynnistäminen
 
 Asenna vaadittavat riippuvuudet komennolla *poetry install*
 
-Alusta tietokanta komennolla poetry *run invoke initiate*
+Alusta tallennustiedosto komennolla poetry *run invoke initiate*
 
 Käynnistä sovellus komennolla *poetry run invoke start*
+
+## Konfigurointi
+
+Ohjelman käyttämä tietokanta tallennetaan juuressa sijaitsevaan data-kansioon. Tietokanta-tiedoston oletusnimi on data.db. Tiedoston nimeä voi muokata juurihakemistossa sijaitsevassa .env-tiedostossa muokkaamalla muuttujan DATABASE_FILENAME arvoa.
+
+Tallennustiedoston nimenmuutoksen jälkeen tulee uusi tallennustiedosto vielä luoda komennolla *poetry run invoke initiate* ennen ohjelman seuraavaa käynnistämistä.
 
 ## Päänäkymä
 

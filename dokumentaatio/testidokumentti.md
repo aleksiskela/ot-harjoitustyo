@@ -20,9 +20,9 @@ Ohjelman testien haaraumakattavuus on 99 %
 
 ### Asennus
 
-Sovelluksen asennus on testattu käyttöohjeen mukaisesti Linux- ja macOS ympäristöissä. Konfiguraatio-tiedoston muokkausta on myös testattu.
+Sovelluksen asennus on testattu käyttöohjeen mukaisesti Linux- ja macOS ympäristöissä. Myös konfiguraatio-tiedoston muokkausta on testattu eri ympäristöissä.
 
 ### Toiminnallisuudet
 
-Kaikki määrittelydokumentin toiminnot on testattu manuaalisesti graafista käyttöliittymää käyttäen. Testeissä on pyritty kattamaan myös mahdolliset virhesyötteet.
+Kaikki määrittelydokumentin toiminnot on testattu manuaalisesti graafista käyttöliittymää käyttäen. Testeissä on pyritty kattamaan myös virhesyötteet.
 
