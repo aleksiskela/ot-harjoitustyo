@@ -2,7 +2,7 @@
 
 ## Sovelluksen lataus
 
-Lataa sovelluksen uusin release ja pura zip-tiedosto
+Lataa sovelluksen uusin ![release](https://github.com/aleksiskela/ot-harjoitustyo/releases/tag/loppupalautus) ja pura zip-tiedosto.
 
 ## Ohjelman käynnistäminen
 
